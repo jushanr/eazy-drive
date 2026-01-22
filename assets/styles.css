@@ -293,35 +293,13 @@ h1,h2,h3{
 }
 .tile h3{margin:0;font-size:16px}
 .tile p{margin:6px 0 0; color:var(--muted); line-height:1.6; font-size:14px}
-
-/* Make entire tile clickable */
-.tileLink{
-  display:block;
-  color: inherit;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-}
-.tileLink:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(2,6,23,.10);
-  border-color: rgba(15,23,42,.18);
-}
-.tileLink:active{
-  transform: translateY(0px);
-}
-.tileLink:focus-visible{
-  outline: 3px solid rgba(246,194,0,.35);
-  outline-offset: 3px;
-}
-.tileCta{
+.tile a{
+  margin-top:10px;
   display:inline-flex;
-  margin-top: 10px;
-  font-weight: 600;
-  color: var(--navy);
+  font-weight:600;
+  color:var(--navy);
 }
-.tileLink:hover .tileCta{
-  text-decoration: underline;
-}
+.tile a:hover{text-decoration:underline}
 
 /* ===== Trust strip ===== */
 .trustStrip{
@@ -333,7 +311,7 @@ h1,h2,h3{
 .trustItem b{font-weight:600}
 .trustItem span{font-size:13px;color:var(--muted)}
 
-/* ===== Testimonials (static grid used on other pages, if any) ===== */
+/* ===== Testimonials (regular grid styles kept) ===== */
 .quotes{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -348,57 +326,62 @@ h1,h2,h3{
   color:var(--muted);
 }
 
-/* ================= TESTIMONIAL SLIDER (mobile-safe) ================= */
+/* ================= TESTIMONIAL SLIDER ================= */
+/* Key mobile fix: NEVER pause via :hover on touch devices (tap can “stick” hover). */
 .testimonialSlider{
-  overflow:hidden;
-  position:relative;
-  margin-top:10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
 
-  /* prevent iOS weird tap/drag issues */
+  /* Helps mobile scrolling not “capture” the element */
+  touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
-  touch-action: pan-y; /* allow vertical scroll, avoid horizontal drag freezing */
 }
 
 .testimonialTrack{
-  display:flex;
-  gap:16px;
-  width:max-content;
+  display: flex;
+  gap: 16px;
+  width: max-content;
+
   animation: scrollTestimonials 35s linear infinite;
+
+  /* smoother on mobile */
   will-change: transform;
+  transform: translateZ(0);
 }
 
-/* Pause on hover (desktop) */
-.testimonialSlider:hover .testimonialTrack{
-  animation-play-state: paused;
+/* Pause only on real hover devices (desktop mouse/trackpad) */
+@media (hover: hover) and (pointer: fine){
+  .testimonialSlider:hover .testimonialTrack{
+    animation-play-state: paused;
+  }
 }
 
-/* Pause ONLY while actively touching (mobile) */
-.testimonialSlider:active .testimonialTrack{
-  animation-play-state: paused;
-}
-
-/* Each card width for marquee */
 .testimonialTrack .quote{
-  min-width:320px;
-  max-width:320px;
-  flex-shrink:0;
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
 }
 
 /* Smooth infinite scroll */
 @keyframes scrollTestimonials{
   from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); } /* because you duplicated the set */
+  to{ transform: translateX(-50%); }
 }
 
 /* Mobile tweaks */
 @media (max-width: 760px){
-  .testimonialTrack{ animation-duration: 45s; }
-  .testimonialTrack .quote{ min-width: 280px; }
+  .testimonialTrack{
+    animation-duration: 45s;
+  }
+  .testimonialTrack .quote{
+    min-width: 280px;
+  }
 }
 
-/* Accessibility: respect reduced motion */
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
-  .testimonialTrack{ animation: none; }
+  .testimonialTrack{ animation: none !important; }
 }
 
 /* ===== Footer ===== */
@@ -481,4 +464,38 @@ textarea{min-height:110px; resize:vertical}
 @media (max-width: 760px){
   .links{display:none}
   .mobileBar{display:block}
+}
+
+/* Make entire tile clickable */
+.tileLink{
+  display:block;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.tileLink:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2,6,23,.10);
+  border-color: rgba(15,23,42,.18);
+}
+
+.tileLink:active{
+  transform: translateY(0px);
+}
+
+.tileLink:focus-visible{
+  outline: 3px solid rgba(246,194,0,.35);
+  outline-offset: 3px;
+}
+
+.tileCta{
+  display:inline-flex;
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.tileLink:hover .tileCta{
+  text-decoration: underline;
 }
