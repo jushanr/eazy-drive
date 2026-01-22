@@ -32,66 +32,60 @@
   </div>
 </div>
 
-<!-- ================= HERO ================= -->
-<header class="hero">
-  <div class="container heroShell">
+<!-- ================= FULL-WIDTH HERO BANNER ================= -->
+<header class="heroBanner">
+  <div class="container heroBannerInner">
 
-    <!-- Left: copy + CTA + ticks -->
-    <div class="heroLeft">
-      <span class="kicker"><span class="kdot"></span> Lessons in Hayes, Southall & nearby</span>
+    <!-- Left copy -->
+    <div class="heroCopy">
+      <h1 class="heroTitle">Learn to Drive with Confidence</h1>
 
-      <h1 class="hTitle">Learn to Drive with Confidence</h1>
-
-      <p class="hLead">
-        Manual & Automatic lessons across West London with calm, structured teaching.
-        Fast booking, local route knowledge, and coaching that targets your weaknesses.
+      <p class="heroSub">
+        Manual & automatic driving lessons in Hayes, Southall, Yeading & Uxbridge.
+        Calm teaching, structured lessons, and local test-route coaching.
       </p>
 
-      <div class="heroActions">
+      <div class="heroCtas">
         <a class="btn primary" data-book>Book a Lesson</a>
         <a class="btn secondary" href="prices.html">View Prices</a>
       </div>
-
-      <ul class="tickList">
-        <li><span class="tick">✓</span> DVSA Approved Instructors</li>
-        <li><span class="tick">✓</span> High Pass Rates</li>
-        <li><span class="tick">✓</span> Friendly, Patient Teaching</li>
-      </ul>
     </div>
 
-    <!-- Right: image + simple availability bar -->
-    <aside class="heroMedia">
-      <div class="photo">
-        <!-- Replace with a real image later: assets/hero.jpg -->
-        <img src="assets/hero.jpg" alt="Driving lesson" />
-      </div>
-
-      <div class="mediaBar">
-        <div class="mediaBarTitle">Check availability</div>
-        <div class="mediaBarText">
-          Enter your postcode and choose lesson type. We’ll confirm quickly.
-        </div>
-
-        <form class="inlineForm" data-inline-booking>
-          <input class="field" type="text" name="postcode" placeholder="Enter your postcode" />
-          <select class="field" name="type">
-            <option>Manual or Automatic</option>
-            <option>Manual</option>
-            <option>Automatic</option>
-            <option>Intensive</option>
-            <option>Refresher</option>
-          </select>
-          <button class="btn primary" type="submit">Check</button>
-        </form>
-
-        <p class="note" style="margin:10px 0 0">
-          Demo: opens booking form. Full site can auto-email + WhatsApp confirmation.
-        </p>
-      </div>
-    </aside>
+    <!-- Right image -->
+    <div class="heroVisual">
+      <img src="assets/hero.jpg" alt="Driving lesson" />
+    </div>
 
   </div>
+
+  <!-- Trust ticks row (like the reference image) -->
+  <div class="heroTrust">
+    <div class="container heroTrustInner">
+      <div class="trustTick"><span class="tickMark">✓</span> Approved DVSA Instructors</div>
+      <div class="trustTick"><span class="tickMark">✓</span> High Pass Rate Success</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Friendly & Patient Teaching</div>
+    </div>
+  </div>
 </header>
+
+<!-- ================= FULL-WIDTH CHECK AVAILABILITY BAR ================= -->
+<section class="availabilityBar">
+  <div class="container availabilityInner">
+    <div class="availLabel">Check Availability</div>
+
+    <form class="availForm" data-inline-booking>
+      <input class="field" type="text" name="postcode" placeholder="Postcode" />
+      <select class="field" name="type">
+        <option>Lesson Type</option>
+        <option>Manual</option>
+        <option>Automatic</option>
+        <option>Intensive</option>
+        <option>Refresher</option>
+      </select>
+      <button class="btn primary" type="submit">Check</button>
+    </form>
+  </div>
+</section>
 
 <!-- ================= TRUST STRIP ================= -->
 <section class="section">
@@ -124,73 +118,73 @@
     <p>Simple options, clear next step — just like the inspiration layout.</p>
 
     <div class="tiles">
-      <div class="card tile">
+      <a class="card tile tileLink" href="lessons.html" aria-label="Manual Lessons - learn more">
         <div class="tileTop">
-          <div class="ico">🚗</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Manual Lessons</h3>
             <p>Step-by-step confidence and full car control.</p>
           </div>
         </div>
-        <a href="lessons.html">Learn more →</a>
-      </div>
+        <span class="tileCta">Learn more →</span>
+      </a>
 
-      <div class="card tile">
+      <a class="card tile tileLink" href="lessons.html" aria-label="Automatic Lessons - learn more">
         <div class="tileTop">
-          <div class="ico">⚡</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Automatic Lessons</h3>
             <p>Simpler learning with smooth progression.</p>
           </div>
         </div>
-        <a href="lessons.html">Learn more →</a>
-      </div>
+        <span class="tileCta">Learn more →</span>
+      </a>
 
-      <div class="card tile">
+      <a class="card tile tileLink" href="lessons.html" aria-label="Intensive Courses - learn more">
         <div class="tileTop">
-          <div class="ico">⏱</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Intensive Courses</h3>
             <p>Focused lessons to progress quickly.</p>
           </div>
         </div>
-        <a href="lessons.html">Learn more →</a>
-      </div>
+        <span class="tileCta">Learn more →</span>
+      </a>
     </div>
 
     <div class="tiles" style="margin-top:14px">
-      <div class="card tile">
+      <a class="card tile tileLink" href="lessons.html" aria-label="Pass Plus - learn more">
         <div class="tileTop">
-          <div class="ico">✅</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Pass Plus</h3>
             <p>Build confidence after passing your test.</p>
           </div>
         </div>
-        <a href="lessons.html">Learn more →</a>
-      </div>
+        <span class="tileCta">Learn more →</span>
+      </a>
 
-      <div class="card tile">
+      <a class="card tile tileLink" href="lessons.html" aria-label="Refresher Lessons - learn more">
         <div class="tileTop">
-          <div class="ico">🔁</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Refresher Lessons</h3>
             <p>Perfect if you haven’t driven in a while.</p>
           </div>
         </div>
-        <a href="lessons.html">Learn more →</a>
-      </div>
+        <span class="tileCta">Learn more →</span>
+      </a>
 
-      <div class="card tile">
+      <a class="card tile tileLink" href="areas.html" aria-label="Local Test Routes - see areas">
         <div class="tileTop">
-          <div class="ico">📍</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Local Test Routes</h3>
             <p>Practice where you’ll actually drive.</p>
           </div>
         </div>
-        <a href="areas.html">See areas →</a>
-      </div>
+        <span class="tileCta">See areas →</span>
+      </a>
     </div>
   </div>
 </section>

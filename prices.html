@@ -32,24 +32,54 @@
   </div>
 </div>
 
-<!-- ================= PAGE HEADER ================= -->
-<header class="hero">
-  <div class="container">
-    <div class="card" style="padding:22px; border-left:6px solid var(--yellow)">
-      <span class="kicker"><span class="kdot"></span> Transparent pricing</span>
-      <h1 class="hTitle" style="margin-top:12px">Lesson Prices & Packages</h1>
-      <p class="hLead" style="margin-bottom:0">
-        Simple options that answer the common questions. (Replace prices with the client’s exact rates once confirmed.)
+<!-- ================= FULL-WIDTH PAGE BANNER ================= -->
+<header class="heroBanner">
+  <div class="container heroBannerInner">
+
+    <!-- Left copy -->
+    <div class="heroCopy">
+      <h1 class="heroTitle">Lesson Prices & Packages</h1>
+
+      <p class="heroSub">
+        Simple pricing that’s easy to compare. Choose manual or automatic lessons and book in minutes.
+        (Swap these placeholders for the instructor’s exact prices once confirmed.)
       </p>
 
-      <div class="heroActions" style="margin-top:14px">
+      <div class="heroCtas">
         <a class="btn primary" data-book>Book a Lesson</a>
         <a class="btn secondary" href="contact.html">Ask a question</a>
-        <a class="btn" data-call>Call</a>
       </div>
+    </div>
+
+    <!-- Right image -->
+    <div class="heroVisual">
+      <img src="assets/hero.jpg" alt="Driving lesson" />
+    </div>
+
+  </div>
+
+  <!-- Trust ticks row -->
+  <div class="heroTrust">
+    <div class="container heroTrustInner">
+      <div class="trustTick"><span class="tickMark">✓</span> Transparent pricing</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Fast booking</div>
     </div>
   </div>
 </header>
+
+<!-- ================= QUICK ACTIONS STRIP ================= -->
+<section class="availabilityBar">
+  <div class="container availabilityInner">
+    <div class="availLabel">Quick actions</div>
+
+    <div class="availForm" style="grid-template-columns:auto auto auto; justify-content:start">
+      <a class="btn dark" data-call>Call</a>
+      <a class="btn secondary" data-wa>WhatsApp</a>
+      <a class="btn primary" data-book>Book</a>
+    </div>
+  </div>
+</section>
 
 <!-- ================= PACKAGES ================= -->
 <section class="section">
@@ -60,7 +90,7 @@
     <div class="tiles">
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">⭐</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Starter</h3>
             <p>Best if you’re new or returning after a break.</p>
@@ -81,7 +111,7 @@
 
       <div class="card tile" style="border:2px solid rgba(211,159,0,.55)">
         <div class="tileTop">
-          <div class="ico">🔥</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Standard (Most Popular)</h3>
             <p>Ideal if you want steady progress + mock tests.</p>
@@ -102,7 +132,7 @@
 
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">⚡</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Intensive / Refresher</h3>
             <p>Focused coaching if you want to level up quickly.</p>

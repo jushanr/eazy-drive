@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
+
 :root{
   /* Brand */
   --navy:#0b1f3a;
@@ -13,7 +15,7 @@
   --stroke: rgba(15,23,42,.12);
 
   --radius:14px;
-  --shadow: 0 14px 40px rgba(2,6,23,.10);
+  --shadow: 0 8px 22px rgba(2,6,23,.06);
   --max:1120px;
 }
 
@@ -21,55 +23,69 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  background: var(--bg);
-  color: var(--text);
+  font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background:var(--bg);
+  color:var(--text);
+  font-weight:400;
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 button,input,select,textarea{font:inherit}
 
+/* ===== Typography ===== */
+h1,h2,h3{
+  font-family:'Poppins', system-ui, sans-serif;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  color:var(--navy);
+}
+
 /* ===== Layout ===== */
 .container{max-width:var(--max); margin:0 auto; padding:0 18px}
 .card{
-  background: var(--card);
-  border: 1px solid var(--stroke);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 28px rgba(2,6,23,.06);
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
 }
 
 /* ===== Header / Nav ===== */
 .topbar{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: #fff;
-  border-bottom: 1px solid var(--stroke);
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#fff;
+  border-bottom:1px solid var(--stroke);
 }
 .nav{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding: 14px 0;
-  gap: 12px;
+  padding:14px 0;
+  gap:12px;
 }
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
-  font-weight:900;
+  font-weight:600;
 }
 .logoBox{
-  width:44px; height:44px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, var(--yellow), rgba(246,194,0,.75));
-  border: 1px solid rgba(211,159,0,.55);
-  display:grid; place-items:center;
-  color: #111827;
-  font-weight: 1000;
+  width:44px;height:44px;
+  border-radius:12px;
+  background:linear-gradient(180deg,var(--yellow),rgba(246,194,0,.78));
+  border:1px solid rgba(211,159,0,.55);
+  display:grid;place-items:center;
+  color:#111827;
+  font-weight:700;
 }
 .brandTitle{line-height:1.05}
-.brandTitle span{display:block; font-size:12px; color: var(--muted); font-weight:700}
+.brandTitle span{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:500;
+}
 
 .links{
   display:flex;
@@ -77,10 +93,10 @@ button,input,select,textarea{font:inherit}
   align-items:center;
 }
 .links a{
-  font-weight:800;
-  color: var(--muted);
+  font-weight:500;
+  color:var(--muted);
 }
-.links a:hover{color: var(--text)}
+.links a:hover{color:var(--text)}
 
 /* ===== Buttons ===== */
 .btn{
@@ -88,288 +104,276 @@ button,input,select,textarea{font:inherit}
   align-items:center;
   justify-content:center;
   gap:8px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--stroke);
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid var(--stroke);
   background:#fff;
-  font-weight:900;
+  font-weight:600;
   white-space:nowrap;
 }
 .btn.primary{
-  background: var(--yellow);
-  border-color: rgba(211,159,0,.65);
+  background:var(--yellow);
+  border-color:rgba(211,159,0,.65);
   color:#111827;
 }
 .btn.secondary{
-  background: #eef2ff;
-  border-color: rgba(37,99,235,.20);
+  background:#eef2ff;
+  border-color:rgba(37,99,235,.20);
 }
 .btn.dark{
-  background: var(--navy);
-  border-color: rgba(11,31,58,.55);
+  background:var(--navy);
+  border-color:rgba(11,31,58,.55);
   color:#fff;
 }
-.btn:active{transform: translateY(1px)}
+.btn:active{transform:translateY(1px)}
 
-/* ===== Hero ===== */
-.hero{
-  padding: 26px 0 10px;
-}
-.heroShell{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 18px;
-  align-items: stretch;
-}
-
-.heroLeft{
-  padding: 22px;
-  border-radius: var(--radius);
-  background:
-    radial-gradient(900px 520px at 15% 0%, rgba(246,194,0,.18), transparent 60%),
-    linear-gradient(180deg, rgba(11,31,58,.06), rgba(255,255,255,1));
-  border: 1px solid var(--stroke);
-}
-
-.kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-size: 12px;
-  color: var(--muted);
-  border: 1px solid var(--stroke);
-  padding: 7px 10px;
-  border-radius: 999px;
-  background:#fff;
-}
-.kdot{
-  width:8px;height:8px;border-radius:99px;
-  background: var(--yellow);
-  border: 1px solid rgba(211,159,0,.6);
-}
-
-.hTitle{
-  margin: 14px 0 10px;
-  font-size: clamp(32px, 4.1vw, 54px);
-  line-height: 1.06;
-  letter-spacing: -.02em;
-}
-.hLead{
-  margin: 0 0 16px;
-  color: var(--muted);
-  line-height: 1.65;
-  max-width: 60ch;
-  font-size: 16px;
-}
-
-.heroActions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items:center;
-}
-
-.tickList{
-  margin: 14px 0 0;
-  padding: 0;
-  list-style: none;
-  display:grid;
-  gap: 8px;
-}
-.tickList li{
-  display:flex;
-  gap: 10px;
-  align-items:flex-start;
-  color: var(--muted);
-  font-weight: 700;
-}
-.tick{
-  width: 18px; height: 18px;
-  border-radius: 99px;
-  background: rgba(246,194,0,.25);
-  border: 1px solid rgba(211,159,0,.55);
-  display:grid; place-items:center;
-  color:#111827;
-  flex: 0 0 auto;
-  margin-top: 1px;
-}
-
-/* Hero right image card */
-.heroMedia{
-  padding: 0;
-  overflow:hidden;
-  border-radius: var(--radius);
-  border: 1px solid var(--stroke);
-  box-shadow: var(--shadow);
-  background: #fff;
-  display:flex;
-  flex-direction:column;
-}
-.heroMedia .photo{
-  height: 260px;
-  background: linear-gradient(135deg, rgba(11,31,58,.08), rgba(246,194,0,.10));
-  position: relative;
-  overflow:hidden;
-}
-.heroMedia .photo img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  object-position: center;
-}
-.heroMedia .mediaBar{
-  padding: 14px 14px 16px;
-}
-.mediaBarTitle{
-  font-weight: 1000;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.mediaBarText{
-  color: var(--muted);
-  line-height:1.6;
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-.inlineForm{
-  display:grid;
-  grid-template-columns: 1.1fr 1fr auto;
-  gap: 10px;
-}
+/* ===== Fields ===== */
 .field{
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  padding: 10px 12px;
+  border:1px solid var(--stroke);
+  border-radius:12px;
+  padding:10px 12px;
   background:#fff;
+}
+.field:focus{
+  border-color:rgba(211,159,0,.55);
+  box-shadow:0 0 0 3px rgba(246,194,0,.22);
   outline:none;
 }
-.inlineForm .btn{padding: 10px 14px}
+
+/* =======================================================================
+   HERO BANNER (matches your CURRENT index.html)
+   ======================================================================= */
+.heroBanner{
+  background:#fff;
+  border-bottom:1px solid var(--stroke);
+}
+
+.heroBannerInner{
+  display:grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap:26px;
+  align-items:center;
+  padding: 26px 0 14px;
+}
+
+/* Left copy */
+.heroTitle{
+  margin:0 0 10px;
+  font-size:clamp(30px, 3.6vw, 48px);
+  line-height:1.08;
+}
+.heroSub{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.65;
+  max-width:60ch;
+  font-size:15.5px;
+}
+.heroCtas{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+/* Right image: force it to look like a banner (NOT tall/awkward) */
+.heroVisual{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--stroke);
+  box-shadow: 0 10px 26px rgba(2,6,23,.08);
+  background:#fff;
+}
+.heroVisual img{
+  width:100%;
+  aspect-ratio: 16 / 9;    /* key fix */
+  height:auto;
+  object-fit:cover;        /* key fix */
+  object-position:center 35%;
+}
+
+/* Trust ticks row under hero */
+.heroTrust{
+  border-top:1px solid var(--stroke);
+  background:#fff;
+}
+.heroTrustInner{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  align-items:center;
+  padding:10px 0;
+}
+.trustTick{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--muted);
+  font-weight:600;
+  font-size:13px;
+}
+.tickMark{
+  display:inline-grid;
+  place-items:center;
+  width:18px;height:18px;
+  border-radius:99px;
+  background: rgba(34,197,94,.14);
+  border:1px solid rgba(34,197,94,.35);
+  color: rgba(11,31,58,.9);
+  font-weight:700;
+}
+
+/* Availability strip */
+.availabilityBar{
+  background:#f7f8fc;
+  border-bottom:1px solid var(--stroke);
+}
+.availabilityInner{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  padding:14px 0;
+}
+.availLabel{
+  font-weight:600;
+  color:var(--navy);
+  min-width:170px;
+}
+.availForm{
+  flex:1;
+  display:grid;
+  grid-template-columns: 1.1fr 1fr auto;
+  gap:10px;
+  align-items:center;
+}
+.availForm .btn{padding:10px 16px}
 
 /* ===== Sections ===== */
-.section{padding: 26px 0}
+.section{padding:26px 0}
 .section h2{
-  margin: 0 0 8px;
-  font-size: 22px;
-  letter-spacing: -.01em;
+  margin:0 0 8px;
+  font-size:22px;
 }
 .section p{
-  margin: 0 0 14px;
-  color: var(--muted);
-  line-height: 1.65;
+  margin:0 0 14px;
+  color:var(--muted);
+  line-height:1.65;
 }
 
-/* Service tiles like reference image */
+/* ===== Tiles ===== */
 .tiles{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
 }
-.tile{
-  padding: 16px;
-}
+.tile{padding:16px}
 .tileTop{
   display:flex;
   gap:12px;
   align-items:center;
-  margin-bottom: 8px;
+  margin-bottom:6px;
 }
-.ico{
-  width:42px;height:42px;
-  border-radius: 12px;
-  background: rgba(11,31,58,.06);
-  border: 1px solid var(--stroke);
-  display:grid; place-items:center;
-  font-weight:1000;
-  color: var(--navy);
-}
-.tile h3{
-  margin:0;
-  font-size:16px;
-}
-.tile p{margin:6px 0 0; color: var(--muted); line-height:1.6; font-size: 14px}
-.tile a{
-  display:inline-flex;
-  margin-top: 10px;
-  font-weight: 900;
-  color: var(--navy);
-}
-.tile a:hover{text-decoration: underline}
 
-/* Trust strip */
+.icoDot{
+  width:42px;height:42px;
+  border-radius:12px;
+  background:#f3f4f6;
+  border:1px solid rgba(15,23,42,.10);
+  position:relative;
+  flex:0 0 auto;
+}
+.icoDot::after{
+  content:"";
+  width:10px;height:10px;
+  border-radius:99px;
+  background:var(--yellow);
+  border:1px solid rgba(211,159,0,.55);
+  position:absolute;
+  top:10px;left:10px;
+}
+.tile h3{margin:0;font-size:16px}
+.tile p{margin:6px 0 0; color:var(--muted); line-height:1.6; font-size:14px}
+.tile a{
+  margin-top:10px;
+  display:inline-flex;
+  font-weight:600;
+  color:var(--navy);
+}
+.tile a:hover{text-decoration:underline}
+
+/* ===== Trust strip ===== */
 .trustStrip{
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
-.trustItem{
-  padding: 14px;
-  text-align:left;
-}
-.trustItem b{display:block; color: var(--navy)}
-.trustItem span{color: var(--muted); font-size: 13px}
+.trustItem{padding:14px}
+.trustItem b{font-weight:600}
+.trustItem span{font-size:13px;color:var(--muted)}
 
-/* Testimonials (simple, not busy) */
+/* ===== Testimonials ===== */
 .quotes{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
 }
-.quote{padding: 16px}
+.quote{padding:16px}
 .quote p{margin:0; line-height:1.65}
-.quote .who{margin-top: 10px; color: var(--muted); font-weight: 900; font-size: 13px}
+.quote .who{
+  margin-top:8px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--muted);
+}
 
-/* Footer */
+/* ===== Footer ===== */
 .footer{
-  margin-top: 18px;
-  border-top: 1px solid var(--stroke);
+  margin-top:18px;
+  border-top:1px solid var(--stroke);
   background:#fff;
-  padding: 22px 0;
+  padding:22px 0;
 }
 .footerGrid{
   display:grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 14px;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:14px;
 }
-.note{font-size:12px;color:var(--muted); line-height:1.5}
+.note{font-size:12px;color:var(--muted)}
 
-/* Mobile bottom bar (Call / WhatsApp / Book) */
+/* ===== Mobile bar ===== */
 .mobileBar{
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 12px;
-  width: min(var(--max), calc(100% - 18px));
-  z-index: 80;
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:12px;
+  width:min(var(--max),calc(100% - 18px));
+  z-index:80;
   display:none;
 }
 .mobileBarInner{
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+  padding:10px;
   background:#fff;
-  border: 1px solid var(--stroke);
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(2,6,23,.16);
-}
-.mobileBarInner .btn{
-  width: 100%;
-  padding: 12px 10px;
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  box-shadow:0 16px 40px rgba(2,6,23,.16);
 }
 
-/* Modal */
+/* ===== Modal ===== */
 .modalOverlay{
   position:fixed;
   inset:0;
-  background: rgba(2,6,23,.55);
+  background:rgba(2,6,23,.55);
   display:none;
   place-items:center;
-  z-index: 120;
+  z-index:120;
 }
 .modal{
-  width: min(650px, calc(100% - 18px));
-  padding: 16px;
-  border-radius: 16px;
+  width:min(650px,calc(100% - 18px));
+  padding:16px;
+  border-radius:16px;
 }
 .modal header{
   display:flex;
@@ -379,18 +383,21 @@ button,input,select,textarea{font:inherit}
 }
 .x{
   width:42px;height:42px;
-  border-radius: 12px;
-  border: 1px solid var(--stroke);
+  border-radius:12px;
+  border:1px solid var(--stroke);
   background:#fff;
   cursor:pointer;
 }
 form{display:grid; gap:10px}
 textarea{min-height:110px; resize:vertical}
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 980px){
-  .heroShell{grid-template-columns:1fr}
-  .inlineForm{grid-template-columns:1fr}
+  .heroBannerInner{grid-template-columns:1fr}
+  .availabilityInner{flex-direction:column; align-items:stretch}
+  .availLabel{min-width:unset}
+  .availForm{grid-template-columns:1fr}
+
   .tiles{grid-template-columns:1fr}
   .trustStrip{grid-template-columns:1fr 1fr}
   .quotes{grid-template-columns:1fr}
@@ -399,4 +406,38 @@ textarea{min-height:110px; resize:vertical}
 @media (max-width: 760px){
   .links{display:none}
   .mobileBar{display:block}
+}
+
+/* Make entire tile clickable */
+.tileLink{
+  display:block;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.tileLink:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2,6,23,.10);
+  border-color: rgba(15,23,42,.18);
+}
+
+.tileLink:active{
+  transform: translateY(0px);
+}
+
+.tileLink:focus-visible{
+  outline: 3px solid rgba(246,194,0,.35);
+  outline-offset: 3px;
+}
+
+.tileCta{
+  display:inline-flex;
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.tileLink:hover .tileCta{
+  text-decoration: underline;
 }

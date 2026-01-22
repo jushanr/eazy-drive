@@ -12,33 +12,117 @@ const waMsg = encodeURIComponent(
 const qs = (s) => document.querySelector(s);
 const qsa = (s) => Array.from(document.querySelectorAll(s));
 
-function openModal() {
+function lockScroll(lock) {
+  document.documentElement.style.overflow = lock ? "hidden" : "";
+  document.body.style.overflow = lock ? "hidden" : "";
+}
+
+function openModal(prefill = {}) {
   const overlay = qs("#modalOverlay");
-  if (overlay) overlay.style.display = "grid";
+  if (!overlay) return;
+
+  overlay.style.display = "grid";
+  overlay.setAttribute("aria-hidden", "false");
+  lockScroll(true);
+
+  // Optional prefill for demo realism
+  const form = overlay.querySelector('form[name="booking"]');
+  if (form) {
+    if (prefill.postcode) {
+      const notes = form.querySelector('[name="notes"]');
+      if (notes && !notes.value.includes(prefill.postcode)) {
+        notes.value = `Postcode: ${prefill.postcode}\n` + (notes.value ? "\n" + notes.value : "");
+      }
+    }
+    if (prefill.lessonType) {
+      const lt = form.querySelector('[name="lessonType"]');
+      if (lt && lt.value === "") lt.value = prefill.lessonType;
+    }
+  }
 }
 
 function closeModal() {
   const overlay = qs("#modalOverlay");
-  if (overlay) overlay.style.display = "none";
+  if (!overlay) return;
+
+  overlay.style.display = "none";
+  overlay.setAttribute("aria-hidden", "true");
+  lockScroll(false);
+}
+
+function ensureClickable(el) {
+  // Allows <button> or <div> to behave safely like a link in the demo
+  if (el.tagName.toLowerCase() !== "a") {
+    el.setAttribute("role", "link");
+    el.setAttribute("tabindex", "0");
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") el.click();
+    });
+  }
+}
+
+function showToast(msg) {
+  let toast = qs("#toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toast";
+    toast.style.position = "fixed";
+    toast.style.left = "50%";
+    toast.style.transform = "translateX(-50%)";
+    toast.style.bottom = "86px";
+    toast.style.padding = "10px 12px";
+    toast.style.borderRadius = "12px";
+    toast.style.background = "#0b1f3a";
+    toast.style.color = "#fff";
+    toast.style.fontWeight = "800";
+    toast.style.fontSize = "13px";
+    toast.style.boxShadow = "0 14px 40px rgba(2,6,23,.22)";
+    toast.style.zIndex = "200";
+    toast.style.maxWidth = "min(520px, calc(100% - 18px))";
+    toast.style.textAlign = "center";
+    toast.style.opacity = "0";
+    toast.style.transition = "opacity 180ms ease";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = msg;
+  toast.style.opacity = "1";
+
+  window.clearTimeout(window.__toastTimer);
+  window.__toastTimer = window.setTimeout(() => {
+    toast.style.opacity = "0";
+  }, 2200);
 }
 
 function wireCtas() {
   // Call buttons/links
   qsa("[data-call]").forEach((el) => {
-    el.setAttribute("href", `tel:${phoneDigits}`);
+    ensureClickable(el);
+    if (el.tagName.toLowerCase() === "a") {
+      el.setAttribute("href", `tel:${phoneDigits}`);
+    } else {
+      el.addEventListener("click", () => window.location.href = `tel:${phoneDigits}`);
+    }
     el.setAttribute("aria-label", `Call ${displayPhone}`);
   });
 
   // WhatsApp buttons/links
   qsa("[data-wa]").forEach((el) => {
-    el.setAttribute("href", `https://wa.me/${whatsappNumber}?text=${waMsg}`);
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noreferrer");
+    ensureClickable(el);
+    const url = `https://wa.me/${whatsappNumber}?text=${waMsg}`;
+    if (el.tagName.toLowerCase() === "a") {
+      el.setAttribute("href", url);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noreferrer");
+    } else {
+      el.addEventListener("click", () => window.open(url, "_blank", "noreferrer"));
+    }
     el.setAttribute("aria-label", "WhatsApp message");
   });
 
   // Book buttons open modal
   qsa("[data-book]").forEach((el) => {
+    ensureClickable(el);
     el.addEventListener("click", (e) => {
       e.preventDefault();
       openModal();
@@ -57,16 +141,32 @@ function wireCtas() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
+
+  // Optional: close modal on submit (demo UX)
+  const bookingForm = qs('form[name="booking"]');
+  bookingForm?.addEventListener("submit", () => {
+    // Netlify will still capture it on deploy — locally it just refreshes unless prevented.
+    // For demo we show a confirmation.
+    showToast("Booking request sent — we’ll confirm availability ASAP.");
+    closeModal();
+  });
 }
 
-// Optional: if you add a booking "inline form" in hero, open modal on submit
+// If you add a booking "inline form" (availability bar), open modal on submit + prefill
 function wireInlineForm() {
   const form = qs("[data-inline-booking]");
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    openModal();
+
+    const postcode = (form.querySelector('[name="postcode"]')?.value || "").trim();
+    const lessonType = (form.querySelector('[name="type"]')?.value || "").trim();
+
+    openModal({
+      postcode: postcode || "",
+      lessonType: lessonType && lessonType !== "Lesson Type" ? lessonType : ""
+    });
   });
 }
 

@@ -32,20 +32,22 @@
   </div>
 </div>
 
-<!-- ================= PAGE HEADER ================= -->
-<header class="hero">
-  <div class="container">
-    <div class="card" style="padding:22px">
-      <span class="kicker"><span class="kdot"></span> Local coverage</span>
-      <h1 class="hTitle" style="margin-top:12px">Areas We Cover</h1>
-      <p class="hLead" style="margin-bottom:0">
-        We cover Hayes, Southall, Yeading, Uxbridge and nearby areas. If you’re unsure, WhatsApp your postcode and we’ll confirm.
+<!-- ================= FULL-WIDTH PAGE BANNER ================= -->
+<header class="heroBanner">
+  <div class="container heroBannerInner">
+
+    <!-- Left copy -->
+    <div class="heroCopy">
+      <h1 class="heroTitle">Areas We Cover</h1>
+
+      <p class="heroSub">
+        We cover Hayes, Southall, Yeading, Uxbridge and nearby areas.
+        If you’re unsure, WhatsApp your postcode and we’ll confirm quickly.
       </p>
 
-      <div class="heroActions" style="margin-top:14px">
+      <div class="heroCtas">
         <a class="btn primary" data-book>Book a Lesson</a>
         <a class="btn secondary" data-wa>WhatsApp Postcode</a>
-        <a class="btn" data-call>Call</a>
       </div>
 
       <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
@@ -55,8 +57,36 @@
         <a class="kicker" href="#uxbridge"><span class="kdot"></span> Uxbridge</a>
       </div>
     </div>
+
+    <!-- Right image -->
+    <div class="heroVisual">
+      <img src="assets/hero.jpg" alt="Driving lesson" />
+    </div>
+
+  </div>
+
+  <!-- Trust ticks row -->
+  <div class="heroTrust">
+    <div class="container heroTrustInner">
+      <div class="trustTick"><span class="tickMark">✓</span> Local route knowledge</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Fast booking</div>
+    </div>
   </div>
 </header>
+
+<!-- ================= QUICK ACTIONS STRIP ================= -->
+<section class="availabilityBar">
+  <div class="container availabilityInner">
+    <div class="availLabel">Quick actions</div>
+
+    <div class="availForm" style="grid-template-columns:auto auto auto; justify-content:start">
+      <a class="btn dark" data-call>Call</a>
+      <a class="btn secondary" data-wa>WhatsApp</a>
+      <a class="btn primary" data-book>Book</a>
+    </div>
+  </div>
+</section>
 
 <!-- ================= AREA CARDS ================= -->
 <section class="section">
@@ -67,7 +97,7 @@
     <div class="tiles" id="hayes">
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">📍</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Driving lessons in Hayes</h3>
             <p>Manual & automatic lessons with local route practice.</p>
@@ -86,7 +116,7 @@
 
       <div class="card tile" id="southall">
         <div class="tileTop">
-          <div class="ico">📍</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Driving lessons in Southall</h3>
             <p>Structured lessons focused on test-ready driving.</p>
@@ -105,7 +135,7 @@
 
       <div class="card tile" id="yeading">
         <div class="tileTop">
-          <div class="ico">📍</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Driving lessons in Yeading</h3>
             <p>Calm teaching with clear step-by-step progression.</p>
@@ -126,7 +156,7 @@
     <div class="tiles" style="margin-top:14px" id="uxbridge">
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">📍</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Driving lessons in Uxbridge</h3>
             <p>Improve control, planning and confidence for test day.</p>
@@ -145,7 +175,7 @@
 
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">✅</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Nearby areas</h3>
             <p>If you’re close to West London, we may still cover you.</p>
@@ -164,7 +194,7 @@
 
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">🗺️</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Local test-route practice</h3>
             <p>Practice where you’ll actually drive on test day.</p>

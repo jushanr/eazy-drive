@@ -32,24 +32,53 @@
   </div>
 </div>
 
-<!-- ================= PAGE HEADER ================= -->
-<header class="hero">
-  <div class="container">
-    <div class="card" style="padding:22px">
-      <span class="kicker"><span class="kdot"></span> Fast booking</span>
-      <h1 class="hTitle" style="margin-top:12px">Contact & Booking</h1>
-      <p class="hLead" style="margin-bottom:0">
-        Choose the quickest option: WhatsApp for fast questions, or use the booking form to request a slot.
+<!-- ================= FULL-WIDTH PAGE BANNER ================= -->
+<header class="heroBanner">
+  <div class="container heroBannerInner">
+
+    <!-- Left copy -->
+    <div class="heroCopy">
+      <h1 class="heroTitle">Contact & Booking</h1>
+
+      <p class="heroSub">
+        Choose the quickest option: WhatsApp for fast questions, or send a booking request and we’ll confirm a slot ASAP.
       </p>
 
-      <div class="heroActions" style="margin-top:14px">
+      <div class="heroCtas">
         <a class="btn primary" data-book>Book a Lesson</a>
         <a class="btn secondary" data-wa>WhatsApp</a>
-        <a class="btn" data-call>Call</a>
       </div>
+    </div>
+
+    <!-- Right image -->
+    <div class="heroVisual">
+      <img src="assets/hero.jpg" alt="Driving lesson" />
+    </div>
+
+  </div>
+
+  <!-- Trust ticks row -->
+  <div class="heroTrust">
+    <div class="container heroTrustInner">
+      <div class="trustTick"><span class="tickMark">✓</span> Fast replies</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Local coverage</div>
     </div>
   </div>
 </header>
+
+<!-- ================= QUICK ACTIONS STRIP ================= -->
+<section class="availabilityBar">
+  <div class="container availabilityInner">
+    <div class="availLabel">Quick actions</div>
+
+    <div class="availForm" style="grid-template-columns:auto auto auto; justify-content:start">
+      <a class="btn dark" data-call>Call</a>
+      <a class="btn secondary" data-wa>WhatsApp</a>
+      <a class="btn primary" data-book>Book</a>
+    </div>
+  </div>
+</section>
 
 <!-- ================= CONTACT GRID ================= -->
 <section class="section">
@@ -61,7 +90,7 @@
       <!-- Contact card -->
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">📞</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Call</h3>
             <p>Speak to us directly to check availability.</p>
@@ -79,7 +108,7 @@
       <!-- Areas card -->
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">📍</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Areas covered</h3>
             <p>Hayes, Southall, Yeading, Uxbridge & nearby.</p>
@@ -97,7 +126,7 @@
       <!-- Booking card -->
       <div class="card tile">
         <div class="tileTop">
-          <div class="ico">📝</div>
+          <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Quick booking</h3>
             <p>Send a request and we’ll confirm ASAP.</p>
