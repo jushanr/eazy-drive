@@ -174,3 +174,34 @@ document.addEventListener("DOMContentLoaded", () => {
   wireCtas();
   wireInlineForm();
 });
+
+// ===== Fix: keep testimonial marquee from freezing on mobile scroll =====
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".testimonialSlider");
+  const track = document.querySelector(".testimonialTrack");
+  if (!slider || !track) return;
+
+  const restart = () => {
+    // Force reflow + restart animation
+    track.style.animation = "none";
+    // force reflow
+    void track.offsetHeight;
+    track.style.animation = "";
+  };
+
+  // If finger started on slider then user scrolls the page,
+  // iOS can leave animation paused/stuck. These events kick it back on.
+  slider.addEventListener("touchend", restart, { passive: true });
+  slider.addEventListener("touchcancel", restart, { passive: true });
+
+  // Also restart after page scroll ends (throttled)
+  let scrollTimer = null;
+  window.addEventListener(
+    "scroll",
+    () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(restart, 120);
+    },
+    { passive: true }
+  );
+});
