@@ -20,6 +20,7 @@
       </div>
     </a>
 
+    <!-- Desktop links -->
     <div class="links">
       <a href="index.html" style="color: var(--text)">Home</a>
       <a href="lessons.html">Lessons</a>
@@ -29,8 +30,46 @@
       <a class="btn" data-call>Call</a>
       <a class="btn primary" data-book>Book a Lesson</a>
     </div>
+
+    <!-- Mobile actions (hamburger + quick CTA) -->
+    <div class="mobileNavActions">
+      <a class="btn" data-call>Call</a>
+      <a class="btn primary" data-book>Book</a>
+
+      <button
+        class="menuBtn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span class="menuIcon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="container mobileMenuInner">
+      <div class="mobileMenuHeader">
+        <div class="mobileMenuTitle">Menu</div>
+        <button class="menuClose" id="menuClose" type="button" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobileMenuLinks" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="prices.html">Prices</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+        <a href="areas.html">Areas</a>
+      </nav>
+
+    </div>
   </div>
 </div>
+
 
 <!-- ================= FULL-WIDTH HERO BANNER ================= -->
 <header class="heroBanner">
@@ -189,7 +228,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ================= TESTIMONIALS ================= -->
 <section class="section">
