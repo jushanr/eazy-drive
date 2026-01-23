@@ -463,7 +463,7 @@ textarea{min-height:110px; resize:vertical}
    RESPONSIVE FIXES (iPhone + iPad)
    ======================================================================= */
 
-/* iPad/tablet: keep layout “designed” (not 1-column everything) + clean navbar */
+/* Tablet: keep 2-column cards + nicer spacing */
 @media (max-width: 980px){
   .heroBannerInner{grid-template-columns: 1fr; gap: 16px}
   .heroVisual img{ aspect-ratio: 16/10; object-position: center 30%; }
@@ -472,80 +472,70 @@ textarea{min-height:110px; resize:vertical}
   .availLabel{min-width:unset}
   .availForm{grid-template-columns: 1fr; }
 
-  /* iPad should look like a tablet: 2-column cards */
+  /* iPad/tablet should be 2-column cards */
   .trustStrip{grid-template-columns: 1fr 1fr}
   .tiles{grid-template-columns: 1fr 1fr}
   .footerGrid{grid-template-columns: 1fr}
 
-  /* marquee sizing */
   .testimonialTrack .quote{ min-width: 300px; max-width: 300px; }
 }
 
-/* iPad width specifically: hide the text nav links, keep only Call + Book for a cleaner topbar */
+/* iPad-ish widths: hide text nav links, keep only Call + Book */
 @media (max-width: 900px){
   .links > a:not(.btn){ display:none; }
   .brandTitle{ font-size: 14px; }
   .brandTitle span{ font-size: 11.5px; }
 }
 
-/* Phone: tighter spacing + better hero CTA layout + prevent mobile bar overlap */
+/* =========================================================
+   MOBILE POLISH (hero not edge-glued + availability card)
+   ========================================================= */
 @media (max-width: 760px){
   .links{display:none}
   .mobileBar{display:block}
   body{ padding-bottom: 92px; } /* stop fixed bar covering content */
+  .container{ padding: 0 18px; }
 
-  .container{ padding: 0 16px; }
-
-  .heroBannerInner{ padding: 18px 0 12px; }
-  .heroTitle{ font-size: 34px; line-height: 1.06; }
-  .heroSub{ font-size: 15px; }
-
-  /* CTAs look more intentional on mobile */
-  .heroCtas{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px;
+  /* Topbar / logo: less squished + nudged right */
+  .topbar{ padding: 4px 0; }
+  .nav{ padding: 10px 0; }
+  .brand{
+    gap: 12px;
+    min-width: 0;
+    margin-left: 6px;
   }
-  .heroCtas .btn{ width: 100%; }
+  .logoBox{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .brandTitle{
+    line-height: 1.15;
+    font-size: 13.5px;
+    min-width: 0;
+  }
+  .brandTitle span{
+    font-size: 11.5px;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
 
-  /* Trust ticks read cleaner on mobile */
-  .heroTrustInner{ gap: 10px; padding: 10px 0 12px; }
-  .trustTick{ font-size: 12.5px; }
-
-  /* Cards become 1-column on phones */
-  .tiles{grid-template-columns: 1fr}
-  .trustStrip{grid-template-columns: 1fr}
-
-  /* slider sizing */
-  .testimonialTrack{ animation-duration: 45s; }
-  .testimonialTrack .quote{ min-width: 280px; max-width: 280px; }
-}
-
-/* Small phones: tighten brand */
-@media (max-width: 420px){
-  .logoBox{ width:40px; height:40px; border-radius: 12px; }
-  .brandTitle{ font-size: 13.5px; }
-  .brandTitle span{ font-size: 11px; }
-}
-/* =========================================================
-   MOBILE HERO FIX (polished spacing + “card” layout)
-   Paste at VERY BOTTOM of styles.css
-   ========================================================= */
-@media (max-width: 760px){
-
-  /* Give the whole hero section breathing room + soft bg */
+  /* HERO: inset card look */
   .heroBanner{
     background: var(--bg);
-    border-bottom: 1px solid var(--stroke);
+    border-bottom: 0;
+    padding: 12px 0 0;
   }
-
-  /* Slightly tighter vertical rhythm on mobile */
   .heroBannerInner{
+    grid-template-columns: 1fr;
     gap: 12px;
-    padding: 14px 0 10px;
+    padding: 0;
   }
-
-  /* Copy becomes a rounded panel so it doesn’t feel edge-glued */
   .heroCopy{
     background: #fff;
     border: 1px solid var(--stroke);
@@ -553,21 +543,19 @@ textarea{min-height:110px; resize:vertical}
     box-shadow: var(--shadow);
     padding: 18px;
   }
-
   .heroTitle{
-    font-size: 34px;      /* less “oversized” */
+    font-size: 34px;
     line-height: 1.05;
     margin: 0 0 10px;
   }
-
   .heroSub{
     font-size: 15px;
     line-height: 1.6;
     margin: 0 0 14px;
   }
-
-  /* Make CTAs look like deliberate mobile buttons */
   .heroCtas{
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 10px;
   }
   .heroCtas .btn{
@@ -576,126 +564,66 @@ textarea{min-height:110px; resize:vertical}
     padding: 12px 14px;
     border-radius: 14px;
   }
-
-  /* Image card matches copy card styling */
   .heroVisual{
     border-radius: 18px;
     box-shadow: var(--shadow);
   }
   .heroVisual img{
-    aspect-ratio: 16 / 10;          /* slightly taller looks better on mobile */
+    aspect-ratio: 16 / 10;
     object-position: center 40%;
   }
 
-  /* Trust strip becomes a card instead of a thin line glued to edges */
+  /* Trust ticks become a card on mobile */
   .heroTrust{
     background: transparent;
     border-top: 0;
     padding: 0 0 12px;
   }
-
   .heroTrustInner{
     background: #fff;
     border: 1px solid var(--stroke);
     border-radius: 18px;
     box-shadow: var(--shadow);
-    padding: 12px;
+    padding: 12px 14px;
     gap: 10px;
   }
+  .trustTick{ font-size: 12.5px; }
 
-  .trustTick{
-    font-size: 12.5px;
-    font-weight: 600;
-  }
-}
-
-/* =========================================================
-   MOBILE TOPBAR / LOGO FIX
-   ========================================================= */
-@media (max-width: 760px){
-
-  .topbar{
-    padding: 4px 0; /* give breathing room */
-  }
-
-  .nav{
-    align-items: center;
-    padding: 10px 0;
-  }
-
-  .brand{
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logoBox{
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  .brandTitle{
-    line-height: 1.15;
-    padding-top: 1px; /* optical alignment tweak */
-  }
-
-  .brandTitle span{
-    font-size: 11.5px;
-    margin-top: 2px;
-  }
-}
-
-/* =========================================================
-   MOBILE: soften "Check Availability" section edges
-   ========================================================= */
-@media (max-width: 760px){
-
-  /* Remove the harsh section divider look */
+  /* Availability: card style (no sharp cut lines) */
   .availabilityBar{
     background: transparent;
     border-bottom: 0;
-    padding: 10px 0 0;
+    padding: 8px 0 0;
   }
-
-  /* Turn the inner strip into a rounded card */
   .availabilityInner{
     background: #fff;
     border: 1px solid var(--stroke);
-    border-radius: 16px;
-    box-shadow: 0 10px 26px rgba(2,6,23,.06);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
     padding: 14px;
     margin: 0 0 14px;
   }
-
-  /* Label spacing */
-  .availLabel{
-    margin: 0 0 8px;
-  }
-
-  /* Form spacing on mobile */
-  .availForm{
-    gap: 10px;
-  }
-
-  /* Make the button feel “pill” and match the design language */
+  .availLabel{ margin: 0 0 8px; }
+  .availForm{ grid-template-columns: 1fr; gap: 10px; }
   .availForm .btn{
+    width: 100%;
     border-radius: 14px;
   }
+
+  /* Phone: 1-column sections */
+  .tiles{grid-template-columns: 1fr}
+  .trustStrip{grid-template-columns: 1fr}
+
+  /* slider sizing */
+  .testimonialTrack{ animation-duration: 45s; }
+  .testimonialTrack .quote{ min-width: 280px; max-width: 280px; }
 }
 
-/* =========================================================
-   MOBILE: give logo/brand breathing room on the left
-   ========================================================= */
-@media (max-width: 760px){
-  .nav{
-    padding-left: 8px;   /* subtle nudge */
-  }
-
-  .brand{
-    margin-left: 6px;    /* fine control for logo position */
-  }
+/* Small phones: tighten brand further */
+@media (max-width: 420px){
+  .logoBox{ width:40px; height:40px; border-radius: 12px; }
+  .brandTitle{ font-size: 13.5px; }
+  .brandTitle span{ font-size: 11px; max-width: 190px; }
 }
 
 /* =========================================================
@@ -706,17 +634,7 @@ textarea{min-height:110px; resize:vertical}
     padding-left: 28px;
     padding-right: 28px;
   }
-
   .heroBannerInner{
-    gap: 32px; /* slightly more space between text & image */
-  }
-}
-
-/* =========================================================
-   TABLET (iPad): make tiles a clean 2-column grid
-   ========================================================= */
-@media (min-width: 761px) and (max-width: 1024px){
-  .tiles{
-    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 }
