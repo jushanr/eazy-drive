@@ -327,13 +327,11 @@ h1,h2,h3{
 }
 
 /* ================= TESTIMONIAL SLIDER ================= */
-/* Key mobile fix: NEVER pause via :hover on touch devices (tap can “stick” hover). */
+/* Mobile fix: avoid sticky hover + keep scroll behaviour smooth */
 .testimonialSlider{
   overflow: hidden;
   position: relative;
   margin-top: 10px;
-
-  /* Helps mobile scrolling not “capture” the element */
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
 }
@@ -342,19 +340,9 @@ h1,h2,h3{
   display: flex;
   gap: 16px;
   width: max-content;
-
   animation: scrollTestimonials 35s linear infinite;
-
-  /* smoother on mobile */
   will-change: transform;
   transform: translateZ(0);
-}
-
-/* Pause only on real hover devices (desktop mouse/trackpad) */
-@media (hover: hover) and (pointer: fine){
-  .testimonialSlider:hover .testimonialTrack{
-    animation-play-state: paused;
-  }
 }
 
 .testimonialTrack .quote{
@@ -363,7 +351,18 @@ h1,h2,h3{
   flex-shrink: 0;
 }
 
-/* Smooth infinite scroll */
+/* Pause only on real hover devices (desktop) */
+@media (hover: hover) and (pointer: fine){
+  .testimonialSlider:hover .testimonialTrack{
+    animation-play-state: paused;
+  }
+}
+
+/* Pause when JS toggles this class (mobile tap) */
+.testimonialSlider.isPaused .testimonialTrack{
+  animation-play-state: paused;
+}
+
 @keyframes scrollTestimonials{
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
@@ -371,18 +370,15 @@ h1,h2,h3{
 
 /* Mobile tweaks */
 @media (max-width: 760px){
-  .testimonialTrack{
-    animation-duration: 45s;
-  }
-  .testimonialTrack .quote{
-    min-width: 280px;
-  }
+  .testimonialTrack{ animation-duration: 45s; }
+  .testimonialTrack .quote{ min-width: 280px; max-width: 280px; }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .testimonialTrack{ animation: none !important; }
 }
+
 
 /* ===== Footer ===== */
 .footer{

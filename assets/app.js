@@ -1,3 +1,5 @@
+// assets/app.js
+
 // ===== CONFIG (edit these once) =====
 const phoneDigits = "07957212670";          // tel: needs digits only
 const displayPhone = "07957 212670";        // shown in UI (optional)
@@ -31,7 +33,9 @@ function openModal(prefill = {}) {
     if (prefill.postcode) {
       const notes = form.querySelector('[name="notes"]');
       if (notes && !notes.value.includes(prefill.postcode)) {
-        notes.value = `Postcode: ${prefill.postcode}\n` + (notes.value ? "\n" + notes.value : "");
+        notes.value =
+          `Postcode: ${prefill.postcode}\n` +
+          (notes.value ? "\n" + notes.value : "");
       }
     }
     if (prefill.lessonType) {
@@ -101,7 +105,7 @@ function wireCtas() {
     if (el.tagName.toLowerCase() === "a") {
       el.setAttribute("href", `tel:${phoneDigits}`);
     } else {
-      el.addEventListener("click", () => window.location.href = `tel:${phoneDigits}`);
+      el.addEventListener("click", () => (window.location.href = `tel:${phoneDigits}`));
     }
     el.setAttribute("aria-label", `Call ${displayPhone}`);
   });
@@ -144,9 +148,9 @@ function wireCtas() {
 
   // Optional: close modal on submit (demo UX)
   const bookingForm = qs('form[name="booking"]');
-  bookingForm?.addEventListener("submit", () => {
-    // Netlify will still capture it on deploy — locally it just refreshes unless prevented.
-    // For demo we show a confirmation.
+  bookingForm?.addEventListener("submit", (e) => {
+    // for demo UX (prevents refresh locally)
+    e.preventDefault();
     showToast("Booking request sent — we’ll confirm availability ASAP.");
     closeModal();
   });
@@ -170,38 +174,100 @@ function wireInlineForm() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  wireCtas();
-  wireInlineForm();
-});
-
-// ===== Fix: keep testimonial marquee from freezing on mobile scroll =====
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".testimonialSlider");
-  const track = document.querySelector(".testimonialTrack");
+/**
+ * Testimonials marquee behaviour:
+ * - Desktop: pause on hover (CSS)
+ * - Mobile: tap toggles pause/resume
+ * - Mobile: if user starts to scroll (touchmove) or scrolls page, force resume
+ *   (prevents the “stuck frozen” iOS hover/active state issue)
+ *
+ * Requires CSS:
+ *   .testimonialSlider.isPaused .testimonialTrack { animation-play-state: paused; }
+ *   and hover pause limited to hover devices only.
+ */
+function wireTestimonialMarquee() {
+  const slider = qs(".testimonialSlider");
+  const track = qs(".testimonialTrack");
   if (!slider || !track) return;
 
-  const restart = () => {
-    // Force reflow + restart animation
-    track.style.animation = "none";
-    // force reflow
-    void track.offsetHeight;
-    track.style.animation = "";
+  let paused = false;
+
+  const setPaused = (on) => {
+    paused = !!on;
+    slider.classList.toggle("isPaused", paused);
+    slider.setAttribute("aria-live", paused ? "polite" : "off");
   };
 
-  // If finger started on slider then user scrolls the page,
-  // iOS can leave animation paused/stuck. These events kick it back on.
-  slider.addEventListener("touchend", restart, { passive: true });
-  slider.addEventListener("touchcancel", restart, { passive: true });
+  // Detect tap vs scroll intent
+  let startX = 0;
+  let startY = 0;
+  let moved = false;
 
-  // Also restart after page scroll ends (throttled)
+  slider.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.touches?.[0];
+      if (!t) return;
+      startX = t.clientX;
+      startY = t.clientY;
+      moved = false;
+    },
+    { passive: true }
+  );
+
+  slider.addEventListener(
+    "touchmove",
+    (e) => {
+      const t = e.touches?.[0];
+      if (!t) return;
+
+      const dx = Math.abs(t.clientX - startX);
+      const dy = Math.abs(t.clientY - startY);
+
+      // user is scrolling the page (vertical movement)
+      if (dy > 10 && dy > dx) {
+        moved = true;
+        // if they scroll while paused, immediately resume so it never gets stuck
+        if (paused) setPaused(false);
+      }
+    },
+    { passive: true }
+  );
+
+  slider.addEventListener(
+    "touchend",
+    () => {
+      // Only toggle if it was a tap (not a scroll gesture)
+      if (!moved) setPaused(!paused);
+    },
+    { passive: true }
+  );
+
+  slider.addEventListener(
+    "touchcancel",
+    () => {
+      // Cancelled touches shouldn’t leave it paused
+      if (paused) setPaused(false);
+    },
+    { passive: true }
+  );
+
+  // If the user scrolls the page and it ends up paused due to iOS weirdness, resume after scroll settles
   let scrollTimer = null;
   window.addEventListener(
     "scroll",
     () => {
       clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(restart, 120);
+      scrollTimer = setTimeout(() => {
+        if (paused) setPaused(false);
+      }, 140);
     },
     { passive: true }
   );
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  wireCtas();
+  wireInlineForm();
+  wireTestimonialMarquee();
 });
