@@ -638,3 +638,35 @@ textarea{min-height:110px; resize:vertical}
     gap: 32px;
   }
 }
+
+/* =========================================
+   MOBILE: slightly scale down hero section
+   (copy card + image + trust card)
+   ========================================= */
+@media (max-width: 760px){
+  /* scale down the whole hero area a touch */
+  .heroBanner{
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+
+  /* compensate so it doesn't create weird gaps */
+  .heroBanner + .availabilityBar{
+    margin-top: -10px;
+  }
+}
+
+/* =========================================
+   MOBILE: slightly scale down availability card too
+   ========================================= */
+@media (max-width: 760px){
+  .availabilityBar{
+    transform: scale(0.96);
+    transform-origin: top center;
+  }
+
+  /* pull the next section up a touch so spacing stays tight */
+  .availabilityBar + .section{
+    margin-top: -8px;
+  }
+}
