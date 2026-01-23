@@ -69,6 +69,7 @@ h1,h2,h3{
   align-items:center;
   gap:10px;
   font-weight:600;
+  min-width: 220px;
 }
 .logoBox{
   width:44px;height:44px;
@@ -78,13 +79,18 @@ h1,h2,h3{
   display:grid;place-items:center;
   color:#111827;
   font-weight:700;
+  flex: 0 0 auto;
 }
-.brandTitle{line-height:1.05}
+.brandTitle{
+  line-height:1.05;
+  font-size: 15px;
+}
 .brandTitle span{
   display:block;
   font-size:12px;
   color:var(--muted);
   font-weight:500;
+  margin-top: 2px;
 }
 
 .links{
@@ -141,13 +147,12 @@ h1,h2,h3{
 }
 
 /* =======================================================================
-   HERO BANNER (matches your CURRENT index.html)
+   HERO BANNER
    ======================================================================= */
 .heroBanner{
   background:#fff;
   border-bottom:1px solid var(--stroke);
 }
-
 .heroBannerInner{
   display:grid;
   grid-template-columns: 1.05fr 1fr;
@@ -176,7 +181,7 @@ h1,h2,h3{
   align-items:center;
 }
 
-/* Right image: force it to look like a banner (NOT tall/awkward) */
+/* Right image */
 .heroVisual{
   border-radius:14px;
   overflow:hidden;
@@ -273,7 +278,6 @@ h1,h2,h3{
   align-items:center;
   margin-bottom:6px;
 }
-
 .icoDot{
   width:42px;height:42px;
   border-radius:12px;
@@ -301,6 +305,31 @@ h1,h2,h3{
 }
 .tile a:hover{text-decoration:underline}
 
+/* Make entire tile clickable */
+.tileLink{
+  display:block;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.tileLink:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2,6,23,.10);
+  border-color: rgba(15,23,42,.18);
+}
+.tileLink:active{ transform: translateY(0px); }
+.tileLink:focus-visible{
+  outline: 3px solid rgba(246,194,0,.35);
+  outline-offset: 3px;
+}
+.tileCta{
+  display:inline-flex;
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.tileLink:hover .tileCta{ text-decoration: underline; }
+
 /* ===== Trust strip ===== */
 .trustStrip{
   display:grid;
@@ -327,7 +356,6 @@ h1,h2,h3{
 }
 
 /* ================= TESTIMONIAL SLIDER ================= */
-/* Mobile fix: avoid sticky hover + keep scroll behaviour smooth */
 .testimonialSlider{
   overflow: hidden;
   position: relative;
@@ -335,7 +363,6 @@ h1,h2,h3{
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
 }
-
 .testimonialTrack{
   display: flex;
   gap: 16px;
@@ -344,41 +371,28 @@ h1,h2,h3{
   will-change: transform;
   transform: translateZ(0);
 }
-
 .testimonialTrack .quote{
   min-width: 320px;
   max-width: 320px;
   flex-shrink: 0;
 }
-
 /* Pause only on real hover devices (desktop) */
 @media (hover: hover) and (pointer: fine){
   .testimonialSlider:hover .testimonialTrack{
     animation-play-state: paused;
   }
 }
-
 /* Pause when JS toggles this class (mobile tap) */
 .testimonialSlider.isPaused .testimonialTrack{
   animation-play-state: paused;
 }
-
 @keyframes scrollTestimonials{
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
-
-/* Mobile tweaks */
-@media (max-width: 760px){
-  .testimonialTrack{ animation-duration: 45s; }
-  .testimonialTrack .quote{ min-width: 280px; max-width: 280px; }
-}
-
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .testimonialTrack{ animation: none !important; }
 }
-
 
 /* ===== Footer ===== */
 .footer{
@@ -445,53 +459,264 @@ h1,h2,h3{
 form{display:grid; gap:10px}
 textarea{min-height:110px; resize:vertical}
 
-/* ===== Responsive ===== */
+/* =======================================================================
+   RESPONSIVE FIXES (iPhone + iPad)
+   ======================================================================= */
+
+/* iPad/tablet: keep layout “designed” (not 1-column everything) + clean navbar */
 @media (max-width: 980px){
-  .heroBannerInner{grid-template-columns:1fr}
+  .heroBannerInner{grid-template-columns: 1fr; gap: 16px}
+  .heroVisual img{ aspect-ratio: 16/10; object-position: center 30%; }
+
   .availabilityInner{flex-direction:column; align-items:stretch}
   .availLabel{min-width:unset}
-  .availForm{grid-template-columns:1fr}
+  .availForm{grid-template-columns: 1fr; }
 
-  .tiles{grid-template-columns:1fr}
-  .trustStrip{grid-template-columns:1fr 1fr}
-  .quotes{grid-template-columns:1fr}
-  .footerGrid{grid-template-columns:1fr}
+  /* iPad should look like a tablet: 2-column cards */
+  .trustStrip{grid-template-columns: 1fr 1fr}
+  .tiles{grid-template-columns: 1fr 1fr}
+  .footerGrid{grid-template-columns: 1fr}
+
+  /* marquee sizing */
+  .testimonialTrack .quote{ min-width: 300px; max-width: 300px; }
 }
+
+/* iPad width specifically: hide the text nav links, keep only Call + Book for a cleaner topbar */
+@media (max-width: 900px){
+  .links > a:not(.btn){ display:none; }
+  .brandTitle{ font-size: 14px; }
+  .brandTitle span{ font-size: 11.5px; }
+}
+
+/* Phone: tighter spacing + better hero CTA layout + prevent mobile bar overlap */
 @media (max-width: 760px){
   .links{display:none}
   .mobileBar{display:block}
+  body{ padding-bottom: 92px; } /* stop fixed bar covering content */
+
+  .container{ padding: 0 16px; }
+
+  .heroBannerInner{ padding: 18px 0 12px; }
+  .heroTitle{ font-size: 34px; line-height: 1.06; }
+  .heroSub{ font-size: 15px; }
+
+  /* CTAs look more intentional on mobile */
+  .heroCtas{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+  }
+  .heroCtas .btn{ width: 100%; }
+
+  /* Trust ticks read cleaner on mobile */
+  .heroTrustInner{ gap: 10px; padding: 10px 0 12px; }
+  .trustTick{ font-size: 12.5px; }
+
+  /* Cards become 1-column on phones */
+  .tiles{grid-template-columns: 1fr}
+  .trustStrip{grid-template-columns: 1fr}
+
+  /* slider sizing */
+  .testimonialTrack{ animation-duration: 45s; }
+  .testimonialTrack .quote{ min-width: 280px; max-width: 280px; }
 }
 
-/* Make entire tile clickable */
-.tileLink{
-  display:block;
-  color: inherit;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+/* Small phones: tighten brand */
+@media (max-width: 420px){
+  .logoBox{ width:40px; height:40px; border-radius: 12px; }
+  .brandTitle{ font-size: 13.5px; }
+  .brandTitle span{ font-size: 11px; }
+}
+/* =========================================================
+   MOBILE HERO FIX (polished spacing + “card” layout)
+   Paste at VERY BOTTOM of styles.css
+   ========================================================= */
+@media (max-width: 760px){
+
+  /* Give the whole hero section breathing room + soft bg */
+  .heroBanner{
+    background: var(--bg);
+    border-bottom: 1px solid var(--stroke);
+  }
+
+  /* Slightly tighter vertical rhythm on mobile */
+  .heroBannerInner{
+    gap: 12px;
+    padding: 14px 0 10px;
+  }
+
+  /* Copy becomes a rounded panel so it doesn’t feel edge-glued */
+  .heroCopy{
+    background: #fff;
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 18px;
+  }
+
+  .heroTitle{
+    font-size: 34px;      /* less “oversized” */
+    line-height: 1.05;
+    margin: 0 0 10px;
+  }
+
+  .heroSub{
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+
+  /* Make CTAs look like deliberate mobile buttons */
+  .heroCtas{
+    gap: 10px;
+  }
+  .heroCtas .btn{
+    width: 100%;
+    justify-content: center;
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  /* Image card matches copy card styling */
+  .heroVisual{
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+  .heroVisual img{
+    aspect-ratio: 16 / 10;          /* slightly taller looks better on mobile */
+    object-position: center 40%;
+  }
+
+  /* Trust strip becomes a card instead of a thin line glued to edges */
+  .heroTrust{
+    background: transparent;
+    border-top: 0;
+    padding: 0 0 12px;
+  }
+
+  .heroTrustInner{
+    background: #fff;
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .trustTick{
+    font-size: 12.5px;
+    font-weight: 600;
+  }
 }
 
-.tileLink:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(2,6,23,.10);
-  border-color: rgba(15,23,42,.18);
+/* =========================================================
+   MOBILE TOPBAR / LOGO FIX
+   ========================================================= */
+@media (max-width: 760px){
+
+  .topbar{
+    padding: 4px 0; /* give breathing room */
+  }
+
+  .nav{
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .brand{
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logoBox{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .brandTitle{
+    line-height: 1.15;
+    padding-top: 1px; /* optical alignment tweak */
+  }
+
+  .brandTitle span{
+    font-size: 11.5px;
+    margin-top: 2px;
+  }
 }
 
-.tileLink:active{
-  transform: translateY(0px);
+/* =========================================================
+   MOBILE: soften "Check Availability" section edges
+   ========================================================= */
+@media (max-width: 760px){
+
+  /* Remove the harsh section divider look */
+  .availabilityBar{
+    background: transparent;
+    border-bottom: 0;
+    padding: 10px 0 0;
+  }
+
+  /* Turn the inner strip into a rounded card */
+  .availabilityInner{
+    background: #fff;
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    box-shadow: 0 10px 26px rgba(2,6,23,.06);
+    padding: 14px;
+    margin: 0 0 14px;
+  }
+
+  /* Label spacing */
+  .availLabel{
+    margin: 0 0 8px;
+  }
+
+  /* Form spacing on mobile */
+  .availForm{
+    gap: 10px;
+  }
+
+  /* Make the button feel “pill” and match the design language */
+  .availForm .btn{
+    border-radius: 14px;
+  }
 }
 
-.tileLink:focus-visible{
-  outline: 3px solid rgba(246,194,0,.35);
-  outline-offset: 3px;
+/* =========================================================
+   MOBILE: give logo/brand breathing room on the left
+   ========================================================= */
+@media (max-width: 760px){
+  .nav{
+    padding-left: 8px;   /* subtle nudge */
+  }
+
+  .brand{
+    margin-left: 6px;    /* fine control for logo position */
+  }
 }
 
-.tileCta{
-  display:inline-flex;
-  margin-top: 10px;
-  font-weight: 600;
-  color: var(--navy);
+/* =========================================================
+   TABLET (iPad): add breathing room on the sides
+   ========================================================= */
+@media (min-width: 761px) and (max-width: 1024px){
+  .container{
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .heroBannerInner{
+    gap: 32px; /* slightly more space between text & image */
+  }
 }
 
-.tileLink:hover .tileCta{
-  text-decoration: underline;
+/* =========================================================
+   TABLET (iPad): make tiles a clean 2-column grid
+   ========================================================= */
+@media (min-width: 761px) and (max-width: 1024px){
+  .tiles{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
