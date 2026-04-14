@@ -266,47 +266,28 @@ function wireTestimonialMarquee() {
   );
 }
 
+function wireHeroSlider() {
+  const slides = document.querySelectorAll(".heroSlide");
+  if (!slides.length || slides.length < 2) return;
+
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 2000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireCtas();
   wireInlineForm();
   wireTestimonialMarquee();
+  wireHeroSlider();
+  wireRevealAnimations();
 });
 
-// ===== Mobile menu toggle =====
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("menuBtn");
-  const menu = document.getElementById("mobileMenu");
-  if (!btn || !menu) return;
 
-  const close = () => {
-    menu.classList.remove("open");
-    menu.setAttribute("aria-hidden", "true");
-    btn.setAttribute("aria-expanded", "false");
-  };
-
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = !menu.classList.contains("open");
-    if (open) {
-      menu.classList.add("open");
-      menu.setAttribute("aria-hidden", "false");
-      btn.setAttribute("aria-expanded", "true");
-    } else {
-      close();
-    }
-  });
-
-  // close when tapping outside
-  document.addEventListener("click", close);
-
-  // close when selecting a link
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
-
-  // close on escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
-  });
-});
 
 // ===== Premium mobile menu toggle =====
 document.addEventListener("DOMContentLoaded", () => {
@@ -317,16 +298,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!topbar || !menu || !btn) return;
 
-  const open = () => {
+  const openMenu = () => {
     topbar.classList.add("menuOpen");
+    menu.classList.add("open");
+    document.body.classList.add("menuOpen");
     menu.setAttribute("aria-hidden", "false");
     btn.setAttribute("aria-expanded", "true");
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
   };
 
-  const close = () => {
+  const closeMenu = () => {
     topbar.classList.remove("menuOpen");
+    menu.classList.remove("open");
+    document.body.classList.remove("menuOpen");
     menu.setAttribute("aria-hidden", "true");
     btn.setAttribute("aria-expanded", "false");
     document.documentElement.style.overflow = "";
@@ -335,27 +320,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btn.addEventListener("click", (e) => {
     e.preventDefault();
+    e.stopPropagation();
+
     const isOpen = topbar.classList.contains("menuOpen");
-    isOpen ? close() : open();
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
-  closeBtn?.addEventListener("click", close);
-
-  // close when tapping outside the menu area
-  document.addEventListener("click", (e) => {
-    if (!topbar.classList.contains("menuOpen")) return;
-    const target = e.target;
-    const clickedInside = menu.contains(target) || btn.contains(target);
-    if (!clickedInside) close();
+  closeBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeMenu();
   });
 
-  // close on Escape
+  menu.addEventListener("click", (e) => {
+    if (e.target === menu) {
+      closeMenu();
+    }
+  });
+
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
+    if (e.key === "Escape") closeMenu();
   });
 
-  // close after clicking a nav link
   menu.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => close());
+    a.addEventListener("click", () => closeMenu());
   });
 });
+
+
+function wireRevealAnimations() {
+  const targets = document.querySelectorAll(
+    '.heroCopy, .heroVisual, .trustItem, .tile, .quote, .passGallery img, .section h2, .section .card'
+  );
+  if (!targets.length) return;
+
+  targets.forEach((el, index) => {
+    el.classList.add('reveal');
+    el.classList.add(`reveal-delay-${index % 4}`);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach((el) => observer.observe(el));
+}

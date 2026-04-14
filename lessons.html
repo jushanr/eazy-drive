@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lessons | Eazy Driving School</title>
-  <meta name="description" content="Manual and automatic driving lessons in Hayes, Southall, Yeading, Uxbridge & surrounding areas. Intensive courses, refresher lessons, Pass Plus." />
+  <title>Lessons & Services | Eazy Driving School</title>
+  <meta name="description" content="Manual and automatic driving lessons in Hayes, Southall, Yeading, Uxbridge and surrounding areas. DVSA approved instructors, personalised tuition, refresher lessons, intensive courses and Pass Plus." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -20,8 +20,9 @@
       </div>
     </a>
 
+    <!-- Desktop links -->
     <div class="links">
-      <a href="index.html">Home</a>
+      <a href="index.html" style="color: var(--text)">Home</a>
       <a href="lessons.html" style="color: var(--text)">Lessons</a>
       <a href="prices.html">Prices</a>
       <a href="testimonials.html">Testimonials</a>
@@ -29,63 +30,217 @@
       <a class="btn" data-call>Call</a>
       <a class="btn primary" data-book>Book a Lesson</a>
     </div>
+
+    <!-- Mobile actions -->
+    <div class="mobileNavActions">
+      <a class="btn" data-call>Call</a>
+      <a class="btn primary" data-book>Book</a>
+
+      <button
+        class="menuBtn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span class="menuIcon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="container mobileMenuInner">
+      <div class="mobileMenuHeader">
+        <div class="mobileMenuTitle">Menu</div>
+        <button class="menuClose" id="menuClose" type="button" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobileMenuLinks" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="lessons.html" style="color: var(--text)">Lessons</a>
+        <a href="prices.html">Prices</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+        <a href="areas.html">Areas</a>
+      </nav>
+    </div>
   </div>
 </div>
 
-<!-- ================= FULL-WIDTH PAGE BANNER ================= -->
+<!-- ================= PAGE HERO ================= -->
 <header class="heroBanner">
   <div class="container heroBannerInner">
 
-    <!-- Left copy -->
     <div class="heroCopy">
       <h1 class="heroTitle">Lessons & Services</h1>
 
       <p class="heroSub">
-        Choose the right lesson type and we’ll confirm availability quickly.
-        Manual & automatic options across Hayes, Southall, Yeading & Uxbridge.
+        Manual and automatic driving lessons tailored to each learner, with friendly instruction,
+        flexible lesson times, and expert knowledge of local test routes.
       </p>
 
       <div class="heroCtas">
         <a class="btn primary" data-book>Book a Lesson</a>
-        <a class="btn secondary" href="prices.html">View Prices</a>
+        <a class="btn secondary" href="contact.html">Get in Touch</a>
       </div>
     </div>
 
-    <!-- Right image -->
     <div class="heroVisual">
-      <img src="assets/hero.jpg" alt="Driving lesson" />
+      <img src="assets/hero-1.jpg" alt="Driving lesson with Eazy Driving School" />
     </div>
 
   </div>
 
-  <!-- Trust ticks row -->
   <div class="heroTrust">
     <div class="container heroTrustInner">
-      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Calm, Structured Teaching</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Mock Tests + Feedback</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Approved Driving Instructors (ADI)</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic Lessons</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Personalised Learning for Every Driver</div>
     </div>
   </div>
 </header>
 
-<!-- ================= QUICK ACTIONS STRIP ================= -->
-<section class="availabilityBar">
-  <div class="container availabilityInner">
-    <div class="availLabel">Quick actions</div>
 
-    <div class="availForm" style="grid-template-columns:auto auto auto; justify-content:start">
-      <a class="btn dark" data-call>Call</a>
-      <a class="btn secondary" data-wa>WhatsApp</a>
-      <a class="btn primary" data-book>Book</a>
+<!-- ================= INTRO ================= -->
+<section class="section">
+  <div class="container">
+    <h2>Personalised Driving Lessons</h2>
+    <div class="card" style="padding: 28px;">
+      <p>
+        Our driving lessons are carefully designed to meet the development needs of each learner.
+        We understand that everyone learns differently, so our instructors adapt each lesson to suit
+        your confidence, ability and pace.
+      </p>
+      <p>
+        Whether you are a complete beginner or preparing for your practical test, we focus on helping
+        you become a safe, confident and independent driver.
+      </p>
+      <p style="margin-bottom:0;">
+        With strong knowledge of local roads and test routes, our lessons and mock tests are designed
+        to feel as realistic and useful as possible.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ================= SERVICES GRID ================= -->
+<!-- ================= INSTRUCTORS ================= -->
 <section class="section">
   <div class="container">
-    <h2>Most popular</h2>
-    <p>Pick what fits you best — we’ll confirm a slot quickly.</p>
+    <h2>Our Instructors</h2>
+    <p>Fully qualified, experienced and committed to high-quality teaching.</p>
+
+    <div class="tiles">
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Zulfe (ADI)</h3>
+            <p>Manual Driving Lessons</p>
+          </div>
+        </div>
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7">
+          <li>10+ years of experience</li>
+          <li>Level 3 Award in Education and Training (QCF)</li>
+          <li>Previously worked with AA, RED and a local driving school</li>
+          <li>Supportive, structured and confidence-building teaching style</li>
+        </ul>
+      </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Qasim (ADI)</h3>
+            <p>Automatic Driving Lessons</p>
+          </div>
+        </div>
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7">
+          <li>10+ years of experience</li>
+          <li>Previously worked with BSM and a local driving school</li>
+          <li>Experienced in helping learners build confidence step by step</li>
+          <li>Friendly, patient and professional approach</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="section">
+  <div class="container">
+    <h2>Why Choose Eazy Driving School?</h2>
+
+    <div class="tiles">
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>DVSA Qualified Instructors</h3>
+            <p>All instructors are Approved Driving Instructors qualified by the DVSA.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Professional 1-to-1 Training</h3>
+            <p>Patient, reliable and personalised lessons designed around your progress.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Flexible Lesson Times</h3>
+            <p>Flexible scheduling, including weekends, to fit around your availability.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Dual-Control Vehicles</h3>
+            <p>Clean, comfortable, air-conditioned vehicles fitted with dual controls.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>High Pass Rates</h3>
+            <p>Lessons focused on building confidence, awareness and real driving ability.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Local Test Route Knowledge</h3>
+            <p>Extensive knowledge of Yeading, Southall and surrounding test areas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LESSON TYPES ================= -->
+<section class="section">
+  <div class="container">
+    <h2>Lesson Types</h2>
+    <p>Choose the option that suits your experience and goals.</p>
 
     <div class="tiles">
       <div class="card tile">
@@ -93,14 +248,9 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Manual Lessons</h3>
-            <p>Learn clutch control, confidence, and full car handling.</p>
+            <p>Ideal if you want full control and flexibility when driving.</p>
           </div>
         </div>
-        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.6">
-          <li>Beginners to test prep</li>
-          <li>Roundabouts & junctions</li>
-          <li>Structured lesson plans</li>
-        </ul>
         <a class="btn primary" style="margin-top:12px" data-book>Book Manual</a>
       </div>
 
@@ -109,14 +259,9 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Automatic Lessons</h3>
-            <p>Simpler learning with smooth progression.</p>
+            <p>A simpler way to learn, helping you focus more on the road and traffic.</p>
           </div>
         </div>
-        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.6">
-          <li>Less stress, more focus</li>
-          <li>Confidence-building approach</li>
-          <li>Test-ready coaching</li>
-        </ul>
         <a class="btn primary" style="margin-top:12px" data-book>Book Automatic</a>
       </div>
 
@@ -125,33 +270,18 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Intensive Courses</h3>
-            <p>Focused sessions to progress quickly.</p>
+            <p>Focused tuition for learners looking to progress quickly.</p>
           </div>
         </div>
-        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.6">
-          <li>Ideal for quick improvement</li>
-          <li>Mock tests + feedback</li>
-          <li>Local route practice</li>
-        </ul>
         <a class="btn primary" style="margin-top:12px" data-book>Request Intensive</a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ================= MORE OPTIONS ================= -->
-<section class="section">
-  <div class="container">
-    <h2>More options</h2>
-    <p>Extra services learners often ask for.</p>
-
-    <div class="tiles">
       <div class="card tile">
         <div class="tileTop">
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Refresher Lessons</h3>
-            <p>If you haven’t driven in a while, get confident again.</p>
+            <p>Perfect if you have not driven in a while and want to rebuild confidence.</p>
           </div>
         </div>
         <a class="btn primary" style="margin-top:12px" data-book>Book Refresher</a>
@@ -162,7 +292,7 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Pass Plus</h3>
-            <p>Build experience after passing your test.</p>
+            <p>Additional training after passing your test to improve experience and awareness.</p>
           </div>
         </div>
         <a class="btn primary" style="margin-top:12px" data-book>Book Pass Plus</a>
@@ -172,12 +302,27 @@
         <div class="tileTop">
           <div class="icoDot" aria-hidden="true"></div>
           <div>
-            <h3>Local Test Routes</h3>
-            <p>Practice in the areas you’ll actually drive on test day.</p>
+            <h3>Mock Test Preparation</h3>
+            <p>Realistic practice designed to help you feel prepared on test day.</p>
           </div>
         </div>
-        <a class="btn secondary" style="margin-top:12px" href="areas.html">See areas</a>
+        <a class="btn secondary" style="margin-top:12px" href="contact.html">Ask About Lessons</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHILOSOPHY ================= -->
+<section class="section">
+  <div class="container">
+    <div class="card" style="padding:18px; border-left:6px solid var(--yellow)">
+      <h2 style="margin:0 0 8px">Our Approach</h2>
+      <p style="margin:0; color:var(--muted); line-height:1.7">
+        We believe learning is easier when you are in the right environment.
+        Our instructors use their skills and experience to identify your strengths and weaknesses,
+        helping you improve with clear feedback, realistic mock tests and lessons that build real confidence.
+        The aim is not just to pass, but to help you become a safe and independent driver for life.
+      </p>
     </div>
   </div>
 </section>
@@ -186,9 +331,9 @@
 <section class="section">
   <div class="container">
     <div class="card" style="padding:18px; border-left:6px solid var(--yellow)">
-      <h2 style="margin:0 0 6px">Ready to book?</h2>
+      <h2 style="margin:0 0 6px">Ready to start?</h2>
       <p style="margin:0 0 12px; color:var(--muted)">
-        Fast booking and structured lessons — we’ll confirm availability quickly.
+        Get in touch today to book your lessons and start learning with confidence.
       </p>
       <div style="display:flex; gap:10px; flex-wrap:wrap">
         <a class="btn primary" data-book>Book a Lesson</a>
@@ -204,7 +349,7 @@
   <div class="container footerGrid">
     <div>
       <strong>Eazy Driving School</strong>
-      <p class="note">Modern redesign focused on bookings and trust.</p>
+      <p class="note">Manual and automatic driving lessons across Hayes, Southall, Yeading, Uxbridge and surrounding areas.</p>
     </div>
     <div>
       <strong>Quick Links</strong><br />
@@ -269,10 +414,6 @@
       <textarea class="field" name="notes" placeholder="Any notes (test date, experience, preferred days/times)…"></textarea>
 
       <button class="btn primary" type="submit">Send request</button>
-
-      <p class="note" style="margin:0">
-        Full site can auto-forward this to email + WhatsApp notification instantly.
-      </p>
     </form>
   </div>
 </div>

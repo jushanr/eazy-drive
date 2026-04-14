@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact & Booking | Eazy Driving School</title>
-  <meta name="description" content="Book manual or automatic driving lessons in Hayes, Southall, Yeading, Uxbridge & nearby. Call, WhatsApp, or book online." />
+  <meta name="description" content="Book manual or automatic driving lessons in Hayes, Southall, Yeading, Uxbridge and nearby areas. Call, WhatsApp or send a booking enquiry online." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -20,8 +20,9 @@
       </div>
     </a>
 
+    <!-- Desktop links -->
     <div class="links">
-      <a href="index.html">Home</a>
+      <a href="index.html" style="color: var(--text)">Home</a>
       <a href="lessons.html">Lessons</a>
       <a href="prices.html">Prices</a>
       <a href="testimonials.html">Testimonials</a>
@@ -29,19 +30,55 @@
       <a class="btn" data-call>Call</a>
       <a class="btn primary" data-book>Book a Lesson</a>
     </div>
+
+    <!-- Mobile actions -->
+    <div class="mobileNavActions">
+      <a class="btn" data-call>Call</a>
+      <a class="btn primary" data-book>Book</a>
+
+      <button
+        class="menuBtn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span class="menuIcon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="container mobileMenuInner">
+      <div class="mobileMenuHeader">
+        <div class="mobileMenuTitle">Menu</div>
+        <button class="menuClose" id="menuClose" type="button" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobileMenuLinks" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="prices.html">Prices</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" style="color: var(--text)">Contact</a>
+        <a href="areas.html">Areas</a>
+      </nav>
+    </div>
   </div>
 </div>
 
-<!-- ================= FULL-WIDTH PAGE BANNER ================= -->
+<!-- ================= PAGE HERO ================= -->
 <header class="heroBanner">
   <div class="container heroBannerInner">
 
-    <!-- Left copy -->
     <div class="heroCopy">
       <h1 class="heroTitle">Contact & Booking</h1>
 
       <p class="heroSub">
-        Choose the quickest option: WhatsApp for fast questions, or send a booking request and we’ll confirm a slot ASAP.
+        Ready to start driving lessons? Get in touch today to ask a question,
+        check availability, or send a booking enquiry.
       </p>
 
       <div class="heroCtas">
@@ -50,93 +87,99 @@
       </div>
     </div>
 
-    <!-- Right image -->
     <div class="heroVisual">
-      <img src="assets/hero.jpg" alt="Driving lesson" />
+      <img src="assets/hero-1.jpg" alt="Driving lesson with Eazy Driving School" />
     </div>
 
   </div>
 
-  <!-- Trust ticks row -->
   <div class="heroTrust">
     <div class="container heroTrustInner">
       <div class="trustTick"><span class="tickMark">✓</span> Fast replies</div>
       <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Local coverage</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Hayes, Southall, Yeading & Nearby</div>
     </div>
   </div>
 </header>
 
-<!-- ================= QUICK ACTIONS STRIP ================= -->
-<section class="availabilityBar">
-  <div class="container availabilityInner">
-    <div class="availLabel">Quick actions</div>
-
-    <div class="availForm" style="grid-template-columns:auto auto auto; justify-content:start">
-      <a class="btn dark" data-call>Call</a>
-      <a class="btn secondary" data-wa>WhatsApp</a>
-      <a class="btn primary" data-book>Book</a>
-    </div>
-  </div>
-</section>
 
 <!-- ================= CONTACT GRID ================= -->
 <section class="section">
   <div class="container">
-    <h2>Get in touch</h2>
+    <h2>Get in Touch</h2>
 
-    <div class="tiles">
-      <!-- Contact card -->
-      <div class="card tile">
-        <div class="tileTop">
-          <div class="icoDot" aria-hidden="true"></div>
-          <div>
-            <h3>Call</h3>
-            <p>Speak to us directly to check availability.</p>
-          </div>
+    <div class="tiles contactTiles">
+    <!-- Call / WhatsApp -->
+    <div class="card tile">
+      <div class="tileTop">
+        <div class="icoDot" aria-hidden="true"></div>
+        <div>
+          <h3>Call or WhatsApp</h3>
+          <p>Get in touch directly to ask a question or check lesson availability.</p>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
-          <a class="btn dark" data-call>Call now</a>
-          <a class="btn secondary" data-wa>WhatsApp</a>
-        </div>
-        <p class="note" style="margin-top:10px">
-          Tip: in the full build we can add business hours + click-to-copy number.
-        </p>
       </div>
 
-      <!-- Areas card -->
+      <div class="tileButtons">
+        <a class="btn dark" data-call>Call now</a>
+        <a class="btn secondary" data-wa>WhatsApp</a>
+      </div>
+
+      <ul class="tileList">
+        <li>Quick replies</li>
+        <li>Friendly advice</li>
+        <li>Flexible lesson times</li>
+      </ul>
+
+      <p class="note" style="margin-top:12px">
+        WhatsApp is usually the quickest way to get a reply.
+      </p>
+    </div>
+
+      <!-- Areas covered -->
       <div class="card tile">
         <div class="tileTop">
           <div class="icoDot" aria-hidden="true"></div>
           <div>
-            <h3>Areas covered</h3>
-            <p>Hayes, Southall, Yeading, Uxbridge & nearby.</p>
+            <h3>Areas Covered</h3>
+            <p>Yeading, Hayes, Southall, Uxbridge and surrounding areas.</p>
           </div>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+
+        <div class="tileButtons">
           <a class="btn secondary" href="areas.html">View areas</a>
           <a class="btn primary" data-book>Book a Lesson</a>
         </div>
-        <p class="note" style="margin-top:10px">
-          Not sure? WhatsApp your postcode and we’ll confirm.
+
+        <ul class="tileList">
+          <li>Local test route knowledge</li>
+          <li>Pick-up & drop-off available</li>
+          <li>Flexible lesson locations</li>
+        </ul>
+
+        <p class="note" style="margin-top:12px">
+          Not sure if your area is covered? Send your postcode on WhatsApp and we’ll confirm.
         </p>
       </div>
 
-      <!-- Booking card -->
+      <!-- Booking form -->
       <div class="card tile">
         <div class="tileTop">
           <div class="icoDot" aria-hidden="true"></div>
           <div>
-            <h3>Quick booking</h3>
-            <p>Send a request and we’ll confirm ASAP.</p>
+            <h3>Send a Booking Enquiry</h3>
+            <p>Fill in the form below and we’ll get back to you as soon as possible.</p>
           </div>
         </div>
 
-        <!-- Netlify form works on static hosting -->
-        <form name="booking-page" method="POST" data-netlify="true" style="margin-top:10px">
-          <input type="hidden" name="form-name" value="booking-page" />
-          <input class="field" name="name" placeholder="Full name" required />
-          <input class="field" name="phone" placeholder="Mobile number" required />
+        <!-- Replace YOUR_FORM_ID with the real Formspree endpoint later -->
+        <form
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          style="margin-top:10px"
+        >
+          <input class="field" type="text" name="name" placeholder="Full name" required />
+          <input class="field" type="tel" name="phone" placeholder="Mobile number" required />
+          <input class="field" type="email" name="email" placeholder="Email address" />
 
           <select class="field" name="lessonType" required>
             <option value="">Lesson type</option>
@@ -153,22 +196,36 @@
             <option>Southall</option>
             <option>Yeading</option>
             <option>Uxbridge</option>
-            <option>Other (specify in notes)</option>
+            <option>Other (specify in message)</option>
           </select>
 
-          <textarea class="field" name="notes" placeholder="Preferred days/times, experience level, test date…"></textarea>
-          <button class="btn primary" type="submit">Send booking request</button>
+          <textarea class="field" name="message" placeholder="Preferred days/times, experience level, test date, or any questions..."></textarea>
 
-          <p class="note" style="margin:10px 0 0">
-            Full build can auto-forward to email + WhatsApp notification instantly.
-          </p>
+          <button class="btn primary" type="submit">Send Enquiry</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SIMPLE FAQ ================= -->
+<!-- ================= CONTACT DETAILS ================= -->
+<section class="section">
+  <div class="container">
+    <div class="card" style="padding:18px; border-left:6px solid var(--yellow)">
+      <h2 style="margin-top:0;">Contact Details</h2>
+      <p style="margin:0 0 10px; color:var(--muted);">
+        You can also contact Eazy Driving School directly using the details below.
+      </p>
+      <p style="margin:0; line-height:1.8;">
+        <strong>Email:</strong> <a href="mailto:eazy@eazydrivingschool.co.uk">eazy@eazydrivingschool.co.uk</a><br />
+        <strong>Phone:</strong> <a href="tel:07957212670">07957 212670</a><br />
+        <strong>Location:</strong> Hayes, Middlesex
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
 <section class="section">
   <div class="container">
     <div class="card" style="padding:18px">
@@ -177,21 +234,21 @@
       <details style="margin-top:10px">
         <summary style="font-weight:900; cursor:pointer">How quickly will you reply?</summary>
         <p class="note" style="margin:10px 0 0">
-          WhatsApp is usually fastest. Booking requests are confirmed as soon as possible.
+          WhatsApp is usually the quickest way to get a response. Enquiry forms are also checked regularly.
         </p>
       </details>
 
       <details style="margin-top:10px">
-        <summary style="font-weight:900; cursor:pointer">Do you do manual and automatic?</summary>
+        <summary style="font-weight:900; cursor:pointer">Do you offer manual and automatic lessons?</summary>
         <p class="note" style="margin:10px 0 0">
-          Yes — both are available depending on availability.
+          Yes, both manual and automatic lessons are available depending on availability.
         </p>
       </details>
 
       <details style="margin-top:10px">
         <summary style="font-weight:900; cursor:pointer">Do you cover my area?</summary>
         <p class="note" style="margin:10px 0 0">
-          Hayes, Southall, Yeading, Uxbridge and nearby areas. WhatsApp your postcode to confirm.
+          We cover Hayes, Southall, Yeading, Uxbridge and surrounding areas. Send your postcode if you want to double check.
         </p>
       </details>
 
@@ -209,7 +266,7 @@
   <div class="container footerGrid">
     <div>
       <strong>Eazy Driving School</strong>
-      <p class="note">Modern redesign focused on bookings and trust.</p>
+      <p class="note">Manual and automatic driving lessons across Hayes, Southall, Yeading, Uxbridge and surrounding areas.</p>
     </div>
     <div>
       <strong>Quick Links</strong><br />
@@ -222,7 +279,8 @@
     <div>
       <strong>Contact</strong><br />
       <span class="note">
-        <a data-call>Call us</a> • <a data-wa>WhatsApp</a>
+        <a href="mailto:eazy@eazydrivingschool.co.uk">eazy@eazydrivingschool.co.uk</a><br />
+        <a href="tel:07957212670">07957 212670</a>
       </span>
     </div>
   </div>
@@ -248,10 +306,13 @@
       <button class="x" id="closeModal" aria-label="Close">✕</button>
     </header>
 
-    <form name="booking" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="booking" />
-      <input class="field" name="name" placeholder="Full name" required />
-      <input class="field" name="phone" placeholder="Mobile number" required />
+    <form
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <input class="field" type="text" name="name" placeholder="Full name" required />
+      <input class="field" type="tel" name="phone" placeholder="Mobile number" required />
+      <input class="field" type="email" name="email" placeholder="Email address" />
 
       <select class="field" name="lessonType" required>
         <option value="">Lesson type</option>
@@ -268,16 +329,12 @@
         <option>Southall</option>
         <option>Yeading</option>
         <option>Uxbridge</option>
-        <option>Other (specify in notes)</option>
+        <option>Other (specify in message)</option>
       </select>
 
-      <textarea class="field" name="notes" placeholder="Any notes (test date, experience, preferred days/times)…"></textarea>
+      <textarea class="field" name="message" placeholder="Preferred days/times, experience level, test date, or any questions..."></textarea>
 
-      <button class="btn primary" type="submit">Send request</button>
-
-      <p class="note" style="margin:0">
-        Full site can auto-forward this to email + WhatsApp notification instantly.
-      </p>
+      <button class="btn primary" type="submit">Send Enquiry</button>
     </form>
   </div>
 </div>

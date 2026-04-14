@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Testimonials | Eazy Driving School</title>
-  <meta name="description" content="Learner feedback for Eazy Driving School. Manual & automatic driving lessons in Hayes, Southall, Yeading, Uxbridge & surrounding areas." />
+  <meta name="description" content="Read real learner reviews for Eazy Driving School. Manual and automatic driving lessons in Hayes, Southall, Yeading, Uxbridge and surrounding areas." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -20,8 +20,9 @@
       </div>
     </a>
 
+    <!-- Desktop links -->
     <div class="links">
-      <a href="index.html">Home</a>
+      <a href="index.html" style="color: var(--text)">Home</a>
       <a href="lessons.html">Lessons</a>
       <a href="prices.html">Prices</a>
       <a href="testimonials.html" style="color: var(--text)">Testimonials</a>
@@ -29,20 +30,55 @@
       <a class="btn" data-call>Call</a>
       <a class="btn primary" data-book>Book a Lesson</a>
     </div>
+
+    <!-- Mobile actions -->
+    <div class="mobileNavActions">
+      <a class="btn" data-call>Call</a>
+      <a class="btn primary" data-book>Book</a>
+
+      <button
+        class="menuBtn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span class="menuIcon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="container mobileMenuInner">
+      <div class="mobileMenuHeader">
+        <div class="mobileMenuTitle">Menu</div>
+        <button class="menuClose" id="menuClose" type="button" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobileMenuLinks" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="prices.html">Prices</a>
+        <a href="testimonials.html" style="color: var(--text)">Testimonials</a>
+        <a href="contact.html">Contact</a>
+        <a href="areas.html">Areas</a>
+      </nav>
+    </div>
   </div>
 </div>
 
-<!-- ================= FULL-WIDTH PAGE BANNER ================= -->
+<!-- ================= PAGE HERO ================= -->
 <header class="heroBanner">
   <div class="container heroBannerInner">
 
-    <!-- Left copy -->
     <div class="heroCopy">
       <h1 class="heroTitle">What Learners Say</h1>
 
       <p class="heroSub">
-        Short, readable feedback that builds trust. In the full launch, we can add Google reviews
-        and star markup for SEO.
+        Real feedback from learners who passed with Eazy Driving School across
+        Yeading, Southall, Hayes and surrounding areas.
       </p>
 
       <div class="heroCtas">
@@ -51,98 +87,130 @@
       </div>
     </div>
 
-    <!-- Right image -->
     <div class="heroVisual">
-      <img src="assets/hero.jpg" alt="Driving lesson" />
+      <img src="assets/hero-1.jpg" alt="Driving lesson with Eazy Driving School" />
     </div>
 
   </div>
 
-  <!-- Trust ticks row -->
   <div class="heroTrust">
     <div class="container heroTrustInner">
-      <div class="trustTick"><span class="tickMark">✓</span> Calm, friendly teaching</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Mock tests + feedback</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic</div>
+      <div class="trustTick"><span class="tickMark">✓</span> First-Time Passes</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Friendly, Patient Teaching</div>
+      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic Lessons</div>
     </div>
   </div>
 </header>
 
-<!-- ================= QUICK ACTIONS STRIP ================= -->
-<section class="availabilityBar">
-  <div class="container availabilityInner">
-    <div class="availLabel">Quick actions</div>
-
-    <div class="availForm" style="grid-template-columns:auto auto auto; justify-content:start">
-      <a class="btn dark" data-call>Call</a>
-      <a class="btn secondary" data-wa>WhatsApp</a>
-      <a class="btn primary" data-book>Book</a>
-    </div>
-  </div>
-</section>
 
 <!-- ================= TRUST STRIP ================= -->
 <section class="section">
   <div class="container">
     <div class="trustStrip">
       <div class="card trustItem">
-        <b>Friendly teaching</b>
-        <span>Calm, structured lessons</span>
+        <b>Real Reviews</b>
+        <span>Feedback from genuine learners</span>
       </div>
       <div class="card trustItem">
-        <b>Test-ready</b>
-        <span>Mock tests + feedback</span>
+        <b>High Pass Rates</b>
+        <span>Including many first-time passes</span>
       </div>
       <div class="card trustItem">
-        <b>Manual & Automatic</b>
-        <span>Choose what fits you</span>
+        <b>Patient Teaching</b>
+        <span>Great for nervous learners</span>
       </div>
       <div class="card trustItem">
-        <b>Fast booking</b>
-        <span>Call / WhatsApp / Book online</span>
+        <b>Local Knowledge</b>
+        <span>Yeading, Southall, Hayes & beyond</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= TESTIMONIALS ================= -->
+<!-- ================= FEATURED TESTIMONIALS ================= -->
 <section class="section">
   <div class="container">
-    <h2>Featured reviews</h2>
-    <p>Demo placeholders — swap these with real quotes from the current site / Google reviews.</p>
+    <h2>Featured Reviews</h2>
+    <p>Here are just a few of the experiences learners have shared after passing with Eazy Driving School.</p>
 
     <div class="quotes">
       <div class="card quote">
-        <p>“Very patient and explained everything clearly. Passed feeling confident.”</p>
-        <div class="who">— Learner (Hayes)</div>
+        <p>“After just 6 lessons with Zulfe, I passed first time at Yeading with only 3 minors. The dashcam feedback was really helpful and made it easy to improve after each lesson.”</p>
+        <div class="who">— Zafar, 1st time pass at Yeading DTC</div>
       </div>
 
       <div class="card quote">
-        <p>“Lessons were structured and focused on my weaknesses. Great instructor.”</p>
-        <div class="who">— Learner (Southall)</div>
+        <p>“I had intense driving anxiety, but Zulfe’s calm and friendly teaching helped me overcome it. After just over 3 months of lessons, I passed feeling more confident than ever.”</p>
+        <div class="who">— Daniella, 1st time pass at Yeading DTC</div>
       </div>
 
       <div class="card quote">
-        <p>“Mock tests helped a lot. Clear feedback and no time wasted.”</p>
-        <div class="who">— Learner (Uxbridge)</div>
+        <p>“From never even sitting in the driver’s seat, I passed my practical test first time. Zulfe was patient, encouraging and taught me how to be a safe and confident driver.”</p>
+        <div class="who">— Anum, 1st time pass at Yeading DTC</div>
       </div>
     </div>
 
     <div class="quotes" style="margin-top:14px">
       <div class="card quote">
-        <p>“Booking was easy and replies were fast. Very professional service.”</p>
-        <div class="who">— Learner (West London)</div>
+        <p>“Driving lessons were very good and Zulfe was professional and calm when pointing out my errors. We focused on my weak points near the test and I passed with only two minors.”</p>
+        <div class="who">— Artur, 2nd time pass at Yeading DTC</div>
       </div>
 
       <div class="card quote">
-        <p>“Made roundabouts and junctions feel much easier. Calm coaching style.”</p>
-        <div class="who">— Learner (Yeading)</div>
+        <p>“Zulfe is the best instructor you could ask for. He listens, gives clear advice and helped me pass first time. Reliable, supportive and easy to learn with.”</p>
+        <div class="who">— Daniel, 1st time pass at Southall DTC</div>
       </div>
 
       <div class="card quote">
-        <p>“Helped me fix the small faults that were holding me back from passing.”</p>
-        <div class="who">— Learner (Hayes)</div>
+        <p>“I found Eazy Driving School online and the reviews were excellent. Zulfe found my weaknesses straight away, helped me manage my nerves and I passed with only 3 minors.”</p>
+        <div class="who">— Shahn, 1st time pass at Hayes DTC</div>
       </div>
+    </div>
+
+    <div class="quotes" style="margin-top:14px">
+      <div class="card quote">
+        <p>“Zulfe is very attentive, patient and encouraging. He made sure I was familiar with different test routes and traffic conditions, and I truly can’t thank him enough.”</p>
+        <div class="who">— Nimmy, 2nd time pass at Hayes DTC</div>
+      </div>
+
+      <div class="card quote">
+        <p>“Great prices and very informative lessons. The instructor tailors each lesson to your skill level and is always focused on improving you as a driver.”</p>
+        <div class="who">— Hamza, 1st time pass at Southall DTC</div>
+      </div>
+
+      <div class="card quote">
+        <p>“After failed tests and a poor experience elsewhere, Zulfe helped me correct my mistakes and build real confidence. Eazy Driving School is patient, polite and professional.”</p>
+        <div class="who">— Mehria, 1st time pass with Eazy at Southall DTC</div>
+      </div>
+    </div>
+
+    <div class="quotes" style="margin-top:14px">
+      <div class="card quote">
+        <p>“Zulfe gave me the confidence and ability to pass. He was always on time, supportive and determined to get me ready. Easily the best instructor I’ve had.”</p>
+        <div class="who">— Sahil, 1st time pass with Eazy at Southall DTC</div>
+      </div>
+
+      <div class="card quote">
+        <p>“He is extremely patient, easy to understand and very supportive. I passed first time and he really helped calm my nerves before the test.”</p>
+        <div class="who">— Lauren, 1st time pass at Hayes DTC</div>
+      </div>
+
+      <div class="card quote">
+        <p>“From day one it was clear Zulfe wanted me to become a safe and confident driver, not just pass quickly. Every lesson added value and helped me improve.”</p>
+        <div class="who">— Lukas, 1st time pass with Eazy at Hayes DTC</div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:28px;">Recent Passes 🎉</h2>
+    <p>Real learners who passed with Eazy Driving School.</p>
+
+    <div class="passGallery">
+      <img src="assets/pass-1.jpg" alt="Recent driving test pass with Eazy Driving School">
+      <img src="assets/pass-2.jpg" alt="Recent driving test pass with Eazy Driving School">
+      <img src="assets/pass-3.jpg" alt="Recent driving test pass with Eazy Driving School">
+      <img src="assets/pass-4.jpg" alt="Recent driving test pass with Eazy Driving School">
+      <img src="assets/pass-5.jpg" alt="Recent driving test pass with Eazy Driving School">
+      <img src="assets/pass-6.jpg" alt="Recent driving test pass with Eazy Driving School">
     </div>
 
     <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
@@ -150,7 +218,7 @@
       <a class="btn secondary" data-wa>Ask on WhatsApp</a>
       <a class="btn" data-call>Call</a>
       <a class="btn secondary" href="https://www.google.com/search?q=Eazy+Driving+School+reviews" target="_blank" rel="noreferrer">
-        View Google reviews
+        View More Reviews on Google
       </a>
     </div>
   </div>
@@ -160,9 +228,9 @@
 <section class="section">
   <div class="container">
     <div class="card" style="padding:18px; border-left:6px solid var(--yellow)">
-      <h2 style="margin:0 0 6px">Want the same result?</h2>
+      <h2 style="margin:0 0 6px">Want the Same Result?</h2>
       <p style="margin:0 0 12px; color:var(--muted)">
-        Book a lesson today and we’ll confirm availability quickly.
+        Book your lessons today and start learning with an experienced, patient instructor.
       </p>
       <div style="display:flex; gap:10px; flex-wrap:wrap">
         <a class="btn primary" data-book>Book a Lesson</a>
@@ -178,7 +246,7 @@
   <div class="container footerGrid">
     <div>
       <strong>Eazy Driving School</strong>
-      <p class="note">Modern redesign focused on bookings and trust.</p>
+      <p class="note">Manual and automatic driving lessons across Hayes, Southall, Yeading, Uxbridge and surrounding areas.</p>
     </div>
     <div>
       <strong>Quick Links</strong><br />
@@ -217,10 +285,13 @@
       <button class="x" id="closeModal" aria-label="Close">✕</button>
     </header>
 
-    <form name="booking" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="booking" />
-      <input class="field" name="name" placeholder="Full name" required />
-      <input class="field" name="phone" placeholder="Mobile number" required />
+    <form
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <input class="field" type="text" name="name" placeholder="Full name" required />
+      <input class="field" type="tel" name="phone" placeholder="Mobile number" required />
+      <input class="field" type="email" name="email" placeholder="Email address" />
 
       <select class="field" name="lessonType" required>
         <option value="">Lesson type</option>
@@ -237,16 +308,12 @@
         <option>Southall</option>
         <option>Yeading</option>
         <option>Uxbridge</option>
-        <option>Other (specify in notes)</option>
+        <option>Other (specify in message)</option>
       </select>
 
-      <textarea class="field" name="notes" placeholder="Any notes (test date, experience, preferred days/times)…"></textarea>
+      <textarea class="field" name="message" placeholder="Preferred days/times, experience level, test date, or any questions..."></textarea>
 
-      <button class="btn primary" type="submit">Send request</button>
-
-      <p class="note" style="margin:0">
-        Full site can auto-forward this to email + WhatsApp notification instantly.
-      </p>
+      <button class="btn primary" type="submit">Send Enquiry</button>
     </form>
   </div>
 </div>
