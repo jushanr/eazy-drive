@@ -7,7 +7,7 @@ const whatsappNumber = "447957212670";      // wa.me needs country code, no +
 
 // Default WhatsApp message
 const waMsg = encodeURIComponent(
-  "Hi! I’d like to book driving lessons. Are you available this week?"
+  "Hi! I’ve come through website and I would like to discuss driving lessons"
 );
 
 // ===== Helpers =====
@@ -276,7 +276,7 @@ function wireHeroSlider() {
     slides[current].classList.remove("active");
     current = (current + 1) % slides.length;
     slides[current].classList.add("active");
-  }, 2000);
+  }, 4000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

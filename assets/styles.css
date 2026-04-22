@@ -340,20 +340,6 @@ h1,h2,h3{
 .trustItem b{font-weight:600}
 .trustItem span{font-size:13px;color:var(--muted)}
 
-/* ===== Testimonials (regular grid styles kept) ===== */
-.quotes{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-.quote{padding:16px}
-.quote p{margin:0; line-height:1.65}
-.quote .who{
-  margin-top:8px;
-  font-size:13px;
-  font-weight:500;
-  color:var(--muted);
-}
 
 /* ================= TESTIMONIAL SLIDER ================= */
 .testimonialSlider{
@@ -899,7 +885,7 @@ textarea{min-height:110px; resize:vertical}
   object-fit: cover;
   object-position: center 35%;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 1s ease;
 }
 
 .heroSlide.active{
@@ -924,32 +910,6 @@ textarea{min-height:110px; resize:vertical}
 }
 
 
-.passGallery{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:14px;
-  margin-top:14px;
-}
-
-.passGallery img{
-  width:100%;
-  height:320px;          /* key part */
-  object-fit:cover;
-  object-position: center top;  /* IMPORTANT */
-  border-radius:16px;
-  border:1px solid var(--stroke);
-  box-shadow: var(--shadow);
-}
-
-@media (max-width: 760px){
-  .passGallery{
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .passGallery img{
-    height:180px;
-  }
-}
 
 .section .container{
   align-items: stretch;
@@ -1213,10 +1173,6 @@ body{
 .footer a{color:#fff;}
 .footer .note{color:rgba(255,255,255,.68);}
 
-.passGallery img{
-  height:360px;
-  border-radius:22px;
-}
 
 /* Contact page specific */
 .contactTiles{
@@ -1229,6 +1185,100 @@ body{
 .tileButtons{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
 .tileList{margin:14px 0 0;padding-left:18px;color:var(--muted);line-height:1.7;font-size:14px;}
 .tileList li{margin-bottom:4px;}
+
+/* ===== Testimonials + Review/Image layout ===== */
+.quotes{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.quote{
+  padding:16px;
+  border-radius:20px;
+  background:linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 14px 36px rgba(15,23,42,.06);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.quote:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(15,23,42,.12);
+  border-color:rgba(15,23,42,.15);
+}
+
+.quote p{
+  margin:0;
+  line-height:1.65;
+}
+
+.quote p::before{
+  content:"“";
+  font-size:28px;
+  font-weight:700;
+  color:var(--yellow);
+  margin-right:6px;
+}
+
+.quote .who{
+  margin-top:10px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--navy);
+}
+
+.reviewActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+  margin-bottom:24px;
+}
+
+.reviewRowGap{
+  margin-top:18px;
+}
+
+.reviewImageGap{
+  margin-top:20px;
+}
+
+.googleReviewBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.googleLogo{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+
+.passGallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.passGallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:20px;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 14px 36px rgba(15,23,42,.06);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.passGallery img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(15,23,42,.12);
+}
+
 
 /* Reveal animations */
 .reveal{
@@ -1345,8 +1395,8 @@ body{
   color:#101828;
 }
 .heroTitle{
-  font-size:clamp(42px, 5vw, 78px);
-  line-height:1.02;
+  font-size:clamp(36px, 4.2vw, 64px);
+  line-height:1.05;
   max-width:9ch;
   margin-bottom:16px;
 }
@@ -1467,7 +1517,7 @@ body{
     border:1px solid rgba(15,23,42,.08);
     box-shadow:0 14px 36px rgba(15,23,42,.06);
   }
-  .heroTitle{font-size:44px;max-width:none;}
+  .heroTitle{font-size:38px;max-width:none;}
   .heroSub{font-size:15px;color:#4b5563;}
   .heroVisual{border-radius:22px;}
   .heroTrustInner{
@@ -1485,4 +1535,187 @@ body{
     box-shadow:0 18px 40px rgba(15,23,42,.10);
   }
   .availLabel{margin-bottom:0; width:100%;}
+
+  .quotes{
+    grid-template-columns:1fr;
+  }
+
+  .passGallery{
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
+  .passGallery img{
+    height:180px;
+  }
+}
+
+.heroBannerInner{
+  position: relative; /* already exists but ensure it’s there */
+}
+
+.heroBrandMark{
+  position: absolute;
+
+  /* anchor it to image area */
+  top: 60px;
+  left: calc(50% + 300px);
+  transform: translateX(-50%);
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+
+  font-size: 85px;              /* bigger */
+  letter-spacing: 0.35em;
+
+  color: var(--navy);
+
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Slight glow tint for modern feel */
+.heroBrandMark::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(246,194,0,0.2), transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* Mobile fix */
+@media (max-width: 760px){
+  .heroBrandMark{
+    font-size: 40px;
+    top: 0;
+    right: 10px;
+  }
+}
+
+@media (max-width: 1200px){
+  .heroBrandMark{
+    left: calc(50% + 230px);
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 980px){
+  .heroBrandMark{
+    display: none;
+  }
+}
+
+.reviewActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+  margin-bottom:24px;
+}
+
+.googleReviewBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.googleLogo{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+
+.passComingCard{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 54px 28px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(250,250,250,.94));
+  border: 1px solid rgba(15,23,42,.08);
+  box-shadow: 0 22px 60px rgba(15,23,42,.10);
+  border-radius: 28px;
+  animation: passFadeUp .55s ease;
+}
+
+.passComingBadge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(246,194,0,.14);
+  border: 1px solid rgba(246,194,0,.26);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.passComingTitle{
+  margin: 0 0 12px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.02;
+  color: var(--navy);
+}
+
+.passComingText{
+  max-width: 560px;
+  margin: 0 auto 24px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.passComingActions{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@keyframes passFadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px){
+  .passComingCard{
+    padding: 38px 18px;
+    border-radius: 22px;
+  }
+
+  .passComingText{
+    font-size: 15px;
+  }
+
+  .passComingActions{
+    flex-direction: column;
+  }
+
+  .passComingActions .btn{
+    width: 100%;
+  }
+}
+
+.btn.ghost{
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.btn.ghost:hover{
+  color: var(--navy);
+  text-decoration: underline;
 }
