@@ -170,7 +170,7 @@
         </div>
 
         <form class="web3form" style="margin-top:10px">
-          <input type="hidden" name="access_key" value="2a0dfd6e-642a-4aa1-a278-c036e34412fa">
+          <input type="hidden" name="access_key" value="6dcfdeb3-79f5-4c06-9466-cbb309057089">
           <input type="hidden" name="subject" value="New Booking Enquiry - Eazy Driving School">
           <input type="hidden" name="from_name" value="Eazy Driving School Website">
           <input type="hidden" name="form_source" value="Contact Page Booking Form">
@@ -305,11 +305,8 @@
       <button class="x" id="closeModal" aria-label="Close">✕</button>
     </header>
 
-    <form
-      action="https://api.web3forms.com/submit"
-      method="POST"
-    >
-      <input type="hidden" name="access_key" value="2a0dfd6e-642a-4aa1-a278-c036e34412fa">
+    <form class="web3form">
+      <input type="hidden" name="access_key" value="6dcfdeb3-79f5-4c06-9466-cbb309057089">
       <input type="hidden" name="subject" value="New Booking Request - Eazy Driving School">
       <input type="hidden" name="from_name" value="Eazy Driving School Website">
       <input type="hidden" name="form_source" value="Booking Modal Form">
@@ -346,6 +343,23 @@
 <script src="assets/app.js"></script>
 
 <script>
+  function showSuccessToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "successToast";
+    toast.textContent = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
+  }
+
   document.querySelectorAll(".web3form").forEach((form) => {
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -367,13 +381,13 @@
         const data = await response.json();
 
         if (data.success) {
-          alert("Booking enquiry sent ✅");
+          showSuccessToast("Booking enquiry sent ✅ We’ll get back to you soon.");
           form.reset();
         } else {
-          alert("Something went wrong. Please try again or WhatsApp us.");
+          showSuccessToast("Something went wrong. Please try again or WhatsApp us.");
         }
       } catch (error) {
-        alert("Something went wrong. Please try again or WhatsApp us.");
+        showSuccessToast("Something went wrong. Please try again or WhatsApp us.");
       }
 
       button.textContent = originalText;

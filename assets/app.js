@@ -146,14 +146,7 @@ function wireCtas() {
     if (e.key === "Escape") closeModal();
   });
 
-  // Optional: close modal on submit (demo UX)
-  const bookingForm = qs('form[name="booking"]');
-  bookingForm?.addEventListener("submit", (e) => {
-    // for demo UX (prevents refresh locally)
-    e.preventDefault();
-    showToast("Booking request sent — we’ll confirm availability ASAP.");
-    closeModal();
-  });
+
 }
 
 // If you add a booking "inline form" (availability bar), open modal on submit + prefill

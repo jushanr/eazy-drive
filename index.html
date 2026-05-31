@@ -397,8 +397,12 @@
       <button class="x" id="closeModal" aria-label="Close">✕</button>
     </header>
 
-    <form name="booking" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="booking" />
+    <form class="web3form">
+      <input type="hidden" name="access_key" value="6dcfdeb3-79f5-4c06-9466-cbb309057089">
+      <input type="hidden" name="subject" value="New Booking Request - Eazy Driving School">
+      <input type="hidden" name="from_name" value="Eazy Driving School Website">
+      <input type="hidden" name="form_source" value="Homepage Booking Modal">
+      <input type="checkbox" name="botcheck" style="display:none;">
       <input class="field" name="name" placeholder="Full name" required />
       <input class="field" name="phone" placeholder="Mobile number" required />
 
@@ -428,6 +432,60 @@
 </div>
 
 <script src="assets/app.js"></script>
+
+<script>
+  function showSuccessToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "successToast";
+    toast.textContent = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
+  }
+
+  document.querySelectorAll(".web3form").forEach((form) => {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const button = form.querySelector("button[type='submit']");
+      const originalText = button.textContent;
+
+      button.textContent = "Sending...";
+      button.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showSuccessToast("Booking enquiry sent ✅ We’ll get back to you soon.");
+          form.reset();
+        } else {
+          showSuccessToast("Something went wrong. Please try again.");
+        }
+      } catch (error) {
+        showSuccessToast("Something went wrong. Please try again.");
+      }
+
+      button.textContent = originalText;
+      button.disabled = false;
+    });
+  });
+</script>
+
 </body>
 </html>
-
