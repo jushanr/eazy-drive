@@ -169,11 +169,7 @@
           </div>
         </div>
 
-        <form
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          style="margin-top:10px"
-        >
+        <form class="web3form" style="margin-top:10px">
           <input type="hidden" name="access_key" value="2a0dfd6e-642a-4aa1-a278-c036e34412fa">
           <input type="hidden" name="subject" value="New Booking Enquiry - Eazy Driving School">
           <input type="hidden" name="from_name" value="Eazy Driving School Website">
@@ -348,5 +344,43 @@
 </div>
 
 <script src="assets/app.js"></script>
+
+<script>
+  document.querySelectorAll(".web3form").forEach((form) => {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const button = form.querySelector("button[type='submit']");
+      const originalText = button.textContent;
+
+      button.textContent = "Sending...";
+      button.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert("Booking enquiry sent ✅");
+          form.reset();
+        } else {
+          alert("Something went wrong. Please try again or WhatsApp us.");
+        }
+      } catch (error) {
+        alert("Something went wrong. Please try again or WhatsApp us.");
+      }
+
+      button.textContent = originalText;
+      button.disabled = false;
+    });
+  });
+</script>
+
 </body>
 </html>
