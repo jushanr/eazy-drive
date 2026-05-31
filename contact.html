@@ -169,12 +169,16 @@
           </div>
         </div>
 
-        <!-- Replace YOUR_FORM_ID with the real Formspree endpoint later -->
         <form
-          action="https://formspree.io/f/mvzlpawy"
+          action="https://api.web3forms.com/submit"
           method="POST"
           style="margin-top:10px"
         >
+          <input type="hidden" name="access_key" value="2a0dfd6e-642a-4aa1-a278-c036e34412fa">
+          <input type="hidden" name="subject" value="New Booking Enquiry - Eazy Driving School">
+          <input type="hidden" name="from_name" value="Eazy Driving School Website">
+          <input type="hidden" name="form_source" value="Contact Page Booking Form">
+          <input type="checkbox" name="botcheck" style="display:none;">
           <input class="field" type="text" name="name" placeholder="Full name" required />
           <input class="field" type="tel" name="phone" placeholder="Mobile number" required />
           <input class="field" type="email" name="email" placeholder="Email address" />
@@ -202,6 +206,8 @@
           <button class="btn primary" type="submit">Send Enquiry</button>
         </form>
       </div>
+
+      
     </div>
   </div>
 </section>
@@ -304,9 +310,14 @@
     </header>
 
     <form
-      action="https://formspree.io/f/YOUR_FORM_ID"
+      action="https://api.web3forms.com/submit"
       method="POST"
     >
+      <input type="hidden" name="access_key" value="2a0dfd6e-642a-4aa1-a278-c036e34412fa">
+      <input type="hidden" name="subject" value="New Booking Request - Eazy Driving School">
+      <input type="hidden" name="from_name" value="Eazy Driving School Website">
+      <input type="hidden" name="form_source" value="Booking Modal Form">
+      <input type="checkbox" name="botcheck" style="display:none;">
       <input class="field" type="text" name="name" placeholder="Full name" required />
       <input class="field" type="tel" name="phone" placeholder="Mobile number" required />
       <input class="field" type="email" name="email" placeholder="Email address" />
