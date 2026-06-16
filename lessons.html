@@ -23,7 +23,7 @@
     <!-- Desktop links -->
     <div class="links">
       <a href="index.html" style="color: var(--text)">Home</a>
-      <a href="lessons.html" style="color: var(--text)">About Us</a>
+      <a href="lessons.html" style="color: var(--text)">Lessons</a>
       <a href="testimonials.html">Testimonials</a>
       <a href="contact.html">Contact</a>
       <a class="btn" data-call>Call</a>
@@ -58,7 +58,7 @@
 
       <nav class="mobileMenuLinks" aria-label="Mobile navigation">
         <a href="index.html">Home</a>
-        <a href="lessons.html" style="color: var(--text)">About Us</a>
+        <a href="lessons.html" style="color: var(--text)">Lessons</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="contact.html">Contact</a>
         <a href="areas.html">Areas</a>
@@ -67,58 +67,36 @@
   </div>
 </div>
 
-<!-- ================= PAGE HERO ================= -->
-<header class="heroBanner">
-  <div class="container heroBannerInner">
-
-    <div class="heroCopy">
-      <h1 class="heroTitle">Lessons & Services</h1>
-
-      <p class="heroSub">
-        Manual and automatic driving lessons tailored to each learner, with friendly instruction,
-        flexible lesson times, and expert knowledge of local test routes.
-      </p>
-
-      <div class="heroCtas">
-        <a class="btn primary" data-book>Contact Us</a>
-        <a class="btn secondary" href="contact.html">Get in Touch</a>
-      </div>
-    </div>
-
-    <div class="heroVisual">
-      <img src="assets/hero-1.jpg" alt="Driving lesson with Eazy Driving School" />
-    </div>
-
-  </div>
-
-  <div class="heroTrust">
-    <div class="container heroTrustInner">
-      <div class="trustTick"><span class="tickMark">✓</span> Approved Driving Instructors (ADI)</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Manual & Automatic Lessons</div>
-      <div class="trustTick"><span class="tickMark">✓</span> Personalised Learning for Every Driver</div>
-    </div>
-  </div>
-</header>
-
 
 <!-- ================= INTRO ================= -->
 <section class="section">
   <div class="container">
-    <h2>Personalised Driving Lessons</h2>
     <div class="card" style="padding: 28px;">
-      <p>
-        Our driving lessons are carefully designed to meet the development needs of each learner.
-        We understand that everyone learns differently, so our instructors adapt each lesson to suit
-        your confidence, ability and pace.
-      </p>
-      <p>
-        Whether you are a complete beginner or preparing for your practical test, we focus on helping
-        you become a safe, confident and independent driver.
-      </p>
-      <p style="margin-bottom:0;">
-        With strong knowledge of local roads and test routes, our lessons and mock tests are designed
-        to feel as realistic and useful as possible.
-      </p>
+      <div style="display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:center;">
+        <div>
+          <h1 style="margin-top:0;">Personalised Driving Lessons</h1>
+
+          <p>
+            Our driving lessons are carefully designed around each learner's confidence, ability and pace.
+            Whether you are a complete beginner, a nervous learner, or preparing for your practical test,
+            our instructors adapt every lesson to help you improve step by step.
+          </p>
+
+          <p>
+            With strong knowledge of local roads, test routes and common test challenges, our lessons and mock
+            tests are designed to feel realistic, useful and confidence-building.
+          </p>
+
+          <p style="margin-bottom:0;">
+            From manual and automatic lessons to refresher sessions and intensive courses, we focus on helping
+            you become a safe, confident and independent driver.
+          </p>
+        </div>
+
+        <div class="heroVisual">
+          <img src="assets/hero-3.jpg" alt="Learner driver with Eazy Driving School" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -161,6 +139,25 @@
           <li>Friendly, patient and professional approach</li>
         </ul>
       </div>
+
+      <div class="card tile">
+        <div class="tileTop">
+          <div class="icoDot" aria-hidden="true"></div>
+          <div>
+            <h3>Mo (PDI)</h3>
+            <p>Manual Driving Lessons</p>
+          </div>
+        </div>
+
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7">
+          <li>Trainee Driving Instructor (PDI)</li>
+          <li>Currently in the final phase of becoming a fully qualified driving instructor</li>
+          <li>Friendly, patient and approachable teaching style</li>
+          <li>Focused on helping learners build confidence at their own pace</li>
+        </ul>
+      </div>
+
+
     </div>
   </div>
 </section>
@@ -246,7 +243,7 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Manual Lessons</h3>
-            <p>Ideal if you want full control and flexibility when driving.</p>
+            <p>Freedom to drive both manual and automatic vehicles once you have passed, also cheaper to buy a car</p>
           </div>
         </div>
         <a class="btn primary" style="margin-top:12px" data-book>Book Manual</a>
@@ -257,7 +254,7 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Automatic Lessons</h3>
-            <p>A simpler way to learn, helping you focus more on the road and traffic.</p>
+            <p>A simpler way to learn</p>
           </div>
         </div>
         <a class="btn primary" style="margin-top:12px" data-book>Book Automatic</a>
@@ -290,7 +287,7 @@
           <div class="icoDot" aria-hidden="true"></div>
           <div>
             <h3>Pass Plus</h3>
-            <p>Additional training after passing your test to improve experience and awareness.</p>
+            <p>Additional training after passing your test to improve experience and awareness. Certificate provided by the DVLA upon completion</p>
           </div>
         </div>
         <a class="btn primary" style="margin-top:12px" data-book>Book Pass Plus</a>
@@ -300,11 +297,11 @@
         <div class="tileTop">
           <div class="icoDot" aria-hidden="true"></div>
           <div>
-            <h3>Mock Test Preparation</h3>
-            <p>Realistic practice designed to help you feel prepared on test day.</p>
+            <h3>Mock Tests</h3>
+            <p>A 90-minute session with you and your instructor under full driving test conditions</p>
           </div>
         </div>
-        <a class="btn secondary" style="margin-top:12px" href="contact.html">Ask About Lessons</a>
+        <a class="btn primary" style="margin-top:12px" href="contact.html">Book a Mock Test</a>
       </div>
     </div>
   </div>
@@ -319,7 +316,8 @@
         We believe learning is easier when you are in the right environment.
         Our instructors use their skills and experience to identify your strengths and weaknesses,
         helping you improve with clear feedback, realistic mock tests and lessons that build real confidence.
-        The aim is not just to pass, but to help you become a safe and independent driver for life.
+        The aim is not just to pass, but to help you become a safe and independent driver for life. 
+        And that's how we make it EAZY!
       </p>
     </div>
   </div>
@@ -352,14 +350,26 @@
     <div>
       <strong>Quick Links</strong><br />
       <span class="note">
+        <a href="lessons.html">Lessons</a> •
         <a href="testimonials.html">Testimonials</a> •
         <a href="contact.html">Contact</a>
       </span>
     </div>
+
+    <div>
+      <strong>Follow Us</strong><br />
+      <span class="note">
+        <a href="https://www.instagram.com/eazypasses/" target="_blank" rel="noopener">
+          @eazypasses
+        </a>
+      </span>
+    </div>
+
     <div>
       <strong>Contact</strong><br />
       <span class="note">
-        <a data-call>Call us</a> • <a data-wa>WhatsApp</a>
+        <a data-call>Call us</a> •
+        <a data-wa>WhatsApp</a>
       </span>
     </div>
   </div>
@@ -418,6 +428,15 @@
     </form>
   </div>
 </div>
+
+
+<style>
+  @media (max-width: 760px){
+    .section .card > div[style*="grid-template-columns"]{
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
 
 <script src="assets/app.js"></script>
 

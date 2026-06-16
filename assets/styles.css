@@ -1022,7 +1022,7 @@ body{
 .heroBannerInner{
   position:relative;
   z-index:1;
-  padding:42px 0 28px;
+  padding:42px 0 20px;
   gap:42px;
 }
 .heroCopy{
@@ -1741,4 +1741,19 @@ body{
 .successToast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Keep lesson/service card buttons aligned at the bottom */
+.tile {
+  display: flex;
+  flex-direction: column;
+}
+
+.tileTop {
+  flex: 1;
+}
+
+.tile .btn {
+  margin-top: auto !important;
+  align-self: flex-start;
 }
