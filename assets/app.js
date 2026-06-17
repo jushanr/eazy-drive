@@ -384,7 +384,7 @@ function wireIntroLoader() {
     setTimeout(() => {
       loader.remove();
     }, 800);
-  }, 2200);
+  }, 3300);
 }
 
 document.addEventListener("DOMContentLoaded", wireIntroLoader);
