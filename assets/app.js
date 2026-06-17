@@ -367,3 +367,24 @@ function wireRevealAnimations() {
 
   targets.forEach((el) => observer.observe(el));
 }
+
+function wireIntroLoader() {
+  const loader = document.querySelector("#introLoader");
+  if (!loader) return;
+
+  if (sessionStorage.getItem("eazyIntroSeen") === "true") {
+    loader.remove();
+    return;
+  }
+
+  setTimeout(() => {
+    loader.classList.add("hide");
+    sessionStorage.setItem("eazyIntroSeen", "true");
+
+    setTimeout(() => {
+      loader.remove();
+    }, 800);
+  }, 2200);
+}
+
+document.addEventListener("DOMContentLoaded", wireIntroLoader);
