@@ -372,14 +372,19 @@ function wireIntroLoader() {
   const loader = document.querySelector("#introLoader");
   if (!loader) return;
 
-  if (sessionStorage.getItem("eazyIntroSeen") === "true") {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("nav") === "true") {
     loader.remove();
+
+    const cleanUrl = window.location.pathname;
+    window.history.replaceState({}, document.title, cleanUrl);
+
     return;
   }
 
   setTimeout(() => {
     loader.classList.add("hide");
-    sessionStorage.setItem("eazyIntroSeen", "true");
 
     setTimeout(() => {
       loader.remove();
