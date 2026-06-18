@@ -393,3 +393,27 @@ function wireIntroLoader() {
 }
 
 document.addEventListener("DOMContentLoaded", wireIntroLoader);
+
+
+const galleryImages = document.querySelectorAll(".galleryGrid img");
+const lightbox = document.getElementById("galleryLightbox");
+const lightboxImg = document.getElementById("galleryLightboxImg");
+
+if (galleryImages.length && lightbox) {
+
+  galleryImages.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+    }
+  });
+
+}
