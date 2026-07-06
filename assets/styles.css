@@ -2023,3 +2023,83 @@ body{
   box-shadow:0 30px 80px rgba(0,0,0,.5);
 }
 
+/* ===== Mobile menu compatibility fix ===== */
+
+@media (max-width: 900px){
+  .topbar{
+    z-index: 99999 !important;
+    overflow: visible !important;
+  }
+
+  .mobileMenu{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 99998 !important;
+    background: rgba(244,246,251,.96) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow-y: auto !important;
+  }
+
+  .mobileMenu.open{
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .mobileMenuInner{
+    padding-top: 96px !important;
+  }
+
+  .mobileMenuLinks{
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: #fff !important;
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+
+  .menuBtn{
+    position: relative !important;
+    z-index: 100000 !important;
+    touch-action: manipulation;
+  }
+}
+
+/* ===== Pass Plus Video Page ===== */
+
+.videoGrid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  margin-top:18px;
+}
+
+.videoCard{
+  padding:14px;
+}
+
+.videoCard video{
+  width:100%;
+  border-radius:16px;
+  background:#000;
+  display:block;
+}
+
+.videoCard h3{
+  margin:12px 0 0;
+  font-size:18px;
+}
+
+@media (max-width:760px){
+  .videoGrid{
+    grid-template-columns:1fr;
+  }
+}
