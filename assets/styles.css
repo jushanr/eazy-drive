@@ -915,9 +915,6 @@ textarea{min-height:110px; resize:vertical}
   align-items: stretch;
 }
 
-.section .card{
-  height: 100%;
-}
 
 .tileButtons{
   display:flex;
@@ -2102,4 +2099,62 @@ body{
   .videoGrid{
     grid-template-columns:1fr;
   }
+}
+
+/* ===== Stay Focused / Pass Plus layout fix ===== */
+
+.passComingCard{
+  height:auto !important;
+  min-height:0 !important;
+  padding:40px 32px !important;
+}
+
+body > .section:first-of-type{
+  min-height:0 !important;
+  display:block !important;
+  padding-bottom:18px !important;
+}
+
+.passComingCard .passComingActions{
+  margin-top:22px;
+}
+
+body > .section:nth-of-type(2){
+  padding-top:22px !important;
+}
+
+.videoCard{
+  height:auto !important;
+}
+
+@media (max-width:760px){
+  .passComingCard{
+    padding:28px 20px !important;
+  }
+
+  body > .section:first-of-type{
+    padding-top:22px !important;
+    padding-bottom:12px !important;
+  }
+
+  body > .section:nth-of-type(2){
+    padding-top:16px !important;
+  }
+
+  .passComingText{
+    margin-bottom:18px;
+  }
+
+  .passComingActions{
+    margin-top:18px;
+  }
+}
+
+.videoCard{
+  height:auto !important;
+}
+
+.passComingCard{
+  min-height:0 !important;
+  padding:40px 32px !important;
 }
