@@ -6,6 +6,7 @@
   <title>Testimonials | Eazy Driving School</title>
   <meta name="description" content="Read real learner reviews for Eazy Driving School. Manual and automatic driving lessons in Hayes, Southall, Yeading, Uxbridge and surrounding areas." />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
   
@@ -25,11 +26,11 @@
     <div class="links">
       <a href="index.html?nav=true">Home</a>
       <a href="lessons.html">Lessons</a>
-      <a href="testimonials.html">Testimonials</a>
+      <a href="testimonials.html" class="active">Testimonials</a>
       <a href="gallery.html">Gallery</a>
       <a href="pass-page.html">STAY FOCUSED</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" data-call>Call</a>
+      <a class="iconBtn" data-call aria-label="Call"><i class="fa-solid fa-phone"></i></a>
       <a class="btn primary" data-book>Booking Enquiry</a>
     </div>
 
@@ -62,7 +63,7 @@
       <nav class="mobileMenuLinks" aria-label="Mobile navigation">
         <a href="index.html?nav=true">Home</a>
         <a href="lessons.html">Lessons</a>
-        <a href="testimonials.html">Testimonials</a>
+        <a href="testimonials.html" class="active">Testimonials</a> 
         <a href="gallery.html">Gallery</a>
         <a href="pass-page.html">STAY FOCUSED</a>
         <a href="contact.html">Contact</a>
@@ -138,11 +139,14 @@
       <a class="btn primary" data-book>Contact Us</a>
       <a class="btn secondary" data-wa>Ask on WhatsApp</a>
       <a class="btn" data-call>Call</a>
-      <a class="btn secondary googleReviewBtn" 
-        href="https://www.google.com/search?sca_esv=fec7a8aac00c39eb&hl=en-GB&sxsrf=ANbL-n5NfyjgXuRV9P3LTHI28sCTXvrPVQ:1777487610084&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qORYU6J7Fn4IX3_0lCvYJbfw0tezBv0MuKukPHYLehkadfn1s0Vg07P3IvWlAYa9z4CCtJ1IfdraQ0O9wfq7AjgGMz2oAnI_RhEA5SI68t8WBmLOjHQ%3D%3D&q=Eazy+Driving+School+Reviews&sa=X&ved=2ahUKEwjc092s2ZOUAxVWVEEAHbunCkUQ0bkNegQIMBAH&biw=1920&bih=991&dpr=1" 
-        target="_blank" 
+    </div>
+
+    <div class="googleReviewsRow">
+      <a class="btn secondary googleReviewBtn"
+        href="..."
+        target="_blank"
         rel="noopener noreferrer">
-        <img src="assets/google-logo.png" alt="Google logo" class="googleLogo" />
+        <img src="assets/google-logo.png" alt="Google logo" class="googleLogo">
         <span>View More Reviews on Google</span>
       </a>
     </div>
@@ -272,15 +276,19 @@
       <strong>Follow Us</strong><br />
       <span class="note">
         <a href="https://www.instagram.com/eazypasses/" target="_blank" rel="noopener">
-          @eazypasses
+            <i class="fa-brands fa-instagram"></i> @eazypasses
         </a>
       </span>
     </div>
     <div>
       <strong>Contact</strong><br />
       <span class="note">
-        <a data-call>Call us</a> •
-        <a data-wa>WhatsApp</a>
+        <a data-call>
+            <i class="fa-solid fa-phone"></i> Call us
+        </a>
+        <a data-wa>
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
       </span>
     </div>
   </div>

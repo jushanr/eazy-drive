@@ -6,6 +6,7 @@
   <title>Gallery | Eazy Driving School</title>
   <meta name="description" content="View recent learner passes and success photos from Eazy Driving School. Manual and automatic driving lessons in Hayes, Southall, Yeading, Uxbridge and surrounding areas." />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
@@ -24,10 +25,10 @@
       <a href="index.html?nav=true">Home</a>
       <a href="lessons.html">Lessons</a>
       <a href="testimonials.html">Testimonials</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="gallery.html" class="active">Gallery</a>
       <a href="pass-page.html">STAY FOCUSED</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" data-call>Call</a>
+      <a class="iconBtn" data-call aria-label="Call"><i class="fa-solid fa-phone"></i></a>
       <a class="btn primary" data-book>Booking Enquiry</a>
     </div>
 
@@ -59,7 +60,7 @@
         <a href="index.html?nav=true">Home</a>
         <a href="lessons.html">Lessons</a>
         <a href="testimonials.html">Testimonials</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="gallery.html" class="active">Gallery</a>
         <a href="pass-page.html">STAY FOCUSED</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -85,7 +86,7 @@
     </div>
 
     <div class="heroVisual">
-      <img src="assets/gallery/pass-1.webp" alt="Recent learner pass with Eazy Driving School" />
+      <img src="assets/hero-1.jpg" alt="Recent learner pass with Eazy Driving School" />
     </div>
   </div>
 
@@ -189,7 +190,7 @@
       <strong>Follow Us</strong><br />
       <span class="note">
         <a href="https://www.instagram.com/eazypasses/" target="_blank" rel="noopener">
-          @eazypasses
+            <i class="fa-brands fa-instagram"></i> @eazypasses
         </a>
       </span>
     </div>
@@ -197,8 +198,12 @@
     <div>
       <strong>Contact</strong><br />
       <span class="note">
-        <a data-call>Call us</a> •
-        <a data-wa>WhatsApp</a>
+        <a data-call>
+            <i class="fa-solid fa-phone"></i> Call us
+        </a>
+        <a data-wa>
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
       </span>
     </div>
   </div>

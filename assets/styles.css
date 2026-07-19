@@ -2158,3 +2158,84 @@ body > .section:nth-of-type(2){
   min-height:0 !important;
   padding:40px 32px !important;
 }
+
+/* Google Reviews CTA */
+
+.googleReviewsRow{
+    margin:20px 0 32px;
+}
+
+.googleReviewsRow .googleReviewBtn{
+    width:100%;
+    justify-content:center;
+    font-size:18px;
+    font-weight:700;
+    padding:16px 24px;
+    gap:12px;
+}
+
+.googleReviewsRow .googleLogo{
+    width:24px;
+    height:24px;
+}
+
+@media (max-width:768px){
+
+    .googleReviewsRow .googleReviewBtn{
+        font-size:16px;
+        padding:15px 18px;
+    }
+
+}
+
+/* ===== Active navigation link ===== */
+
+.links a.active{
+  color:var(--navy) !important;
+  font-weight:700;
+  position:relative;
+}
+
+.links a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-10px;
+  height:3px;
+  border-radius:999px;
+  background:var(--yellow);
+}
+
+.mobileMenuLinks a.active{
+  background:rgba(246,194,0,.16);
+  color:var(--navy) !important;
+  font-weight:800;
+  border-left:5px solid var(--yellow);
+  padding-left:18px;
+}
+
+.mobileMenuLinks a.active::after{
+  color:var(--navy);
+}
+
+.iconBtn{
+    width:48px;
+    height:48px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    font-size:22px;
+    text-decoration:none;
+    transition:.2s;
+    cursor:pointer;
+}
+
+.iconBtn:hover{
+    background:var(--yellow);
+    border-color:var(--yellow);
+    transform:translateY(-2px);
+}

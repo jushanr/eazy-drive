@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +8,11 @@
 
   <meta
     name="description"
-    content="Watch road safety and Pass Plus videos from Eazy Driving School and learn how additional training can help you become a safer, more confident driver."
+    content="Additional driver training for new and experienced licence holders. Refresh your skills, rebuild confidence and stay aware of changes to roads, vehicles and driving conditions."
   />
 
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -30,24 +30,22 @@
       </div>
     </a>
 
-    <!-- Desktop navigation -->
     <div class="links">
       <a href="index.html?nav=true">Home</a>
       <a href="lessons.html">Lessons</a>
       <a href="testimonials.html">Testimonials</a>
       <a href="gallery.html">Gallery</a>
 
-      <a href="pass-page.html" style="color: var(--text)">
+      <a href="pass-page.html" class="active">
         STAY FOCUSED
       </a>
 
       <a href="contact.html">Contact</a>
 
-      <a class="btn" data-call>Call</a>
+      <a class="iconBtn" data-call aria-label="Call"><i class="fa-solid fa-phone"></i></a>
       <a class="btn primary" data-book>Booking Enquiry</a>
     </div>
 
-    <!-- Mobile navigation actions -->
     <div class="mobileNavActions">
       <a class="btn" data-call>Call</a>
       <a class="btn primary" data-book>Book</a>
@@ -66,7 +64,6 @@
 
   </div>
 
-  <!-- Mobile menu -->
   <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
     <div class="container mobileMenuInner">
 
@@ -89,7 +86,7 @@
         <a href="testimonials.html">Testimonials</a>
         <a href="gallery.html">Gallery</a>
 
-        <a href="pass-page.html" style="color: var(--text)">
+        <a href="pass-page.html" class="active">
           STAY FOCUSED
         </a>
 
@@ -101,55 +98,106 @@
 </div>
 
 <!-- ================= INTRO ================= -->
-<section class="section">
-  <div class="container">
+<!-- ================= PAGE HERO ================= -->
+<header class="heroBanner">
+  <div class="container heroBannerInner">
 
-    <div class="card passComingCard">
-      <span class="passComingBadge">Stay Focused</span>
+    <div class="heroCopy">
+      <h1 class="heroTitle">Stay Focused</h1>
 
-      <h1 class="passComingTitle">Pass Plus Training</h1>
-
-      <p class="passComingText">
-        Pass Plus is a practical training course that takes at least six hours
-        and helps drivers improve their skills, confidence and safety after
-        passing their driving test.
+      <p class="heroSub">
+        Whether you have recently passed your driving test or have held your
+        licence for many years, additional training can help you stay safe,
+        confident and aware behind the wheel.
       </p>
 
-      <p class="passComingText">
-        It can be taken at any time, although it is particularly useful for
-        new drivers during their first year of independent driving.
-      </p>
-
-      <p class="passComingText">
-        Watch the videos below to learn more about road awareness, safe driving
-        and why additional training can help you stay focused behind the wheel.
-      </p>
-
-      <div class="passComingActions">
-
+      <div class="heroCtas">
         <a
-          href="https://wa.me/447957212670?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Pass%20Plus.%20Please%20can%20you%20send%20me%20more%20information%3F"
           class="btn primary"
+          href="https://wa.me/447957212670?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Stay%20Focused%20driver%20training.%20Please%20can%20you%20send%20me%20more%20information%3F"
           target="_blank"
           rel="noopener"
         >
-          Register Interest
+          Ask About Training
         </a>
 
-        <a href="contact.html" class="btn secondary">
+        <a class="btn secondary" href="contact.html">
           Contact Us
         </a>
-
-        <a href="index.html?nav=true" class="btn ghost">
-          ← Back to Home
-        </a>
-
       </div>
     </div>
 
+    <div class="heroVisual">
+      <img
+        src="assets/hero-4.jpg"
+        alt="Driver training with Eazy Driving School"
+      />
+    </div>
+
+  </div>
+
+  <div class="heroTrust">
+    <div class="container heroTrustInner">
+      <div class="trustTick">
+        <span class="tickMark">✓</span>
+        New & Experienced Drivers
+      </div>
+
+      <div class="trustTick">
+        <span class="tickMark">✓</span>
+        Confidence-Building Training
+      </div>
+
+      <div class="trustTick">
+        <span class="tickMark">✓</span>
+        Modern Road Awareness
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= STAY FOCUSED INFORMATION ================= -->
+<section class="section">
+  <div class="container">
+    <h2>Additional Training for Licence Holders</h2>
+
+    <div class="card" style="padding:28px">
+      <p>
+        Roads, vehicles and driving conditions continue to change. New road
+        layouts, updated rules, modern vehicle technology and increasing traffic
+        can make driving feel very different from when you originally learned.
+      </p>
+
+      <p>
+        Stay Focused training is designed for full licence holders who want to
+        refresh their knowledge, rebuild their confidence or improve their road
+        awareness. It can also help drivers become more comfortable after a long
+        break from driving or when moving to a new or unfamiliar vehicle.
+      </p>
+
+      <p>
+        Training is tailored to your individual needs, whether you have only
+        recently passed or have been driving for many years. The aim is to help
+        you adapt to today’s roads and remain safe, calm and confident behind
+        the wheel.
+      </p>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px">
+        <a class="btn primary" href="contact.html">
+          Enquire About Training
+        </a>
+
+        <a class="btn secondary" data-wa>
+          WhatsApp
+        </a>
+
+        <a class="btn" data-call>
+          Call
+        </a>
+      </div>
+    </div>
   </div>
 </section>
-
 <!-- ================= VIDEOS ================= -->
 <section class="section">
   <div class="container">
@@ -157,8 +205,8 @@
     <h2>Stay Focused Videos</h2>
 
     <p>
-      Watch the videos below to learn more about road safety, driving awareness
-      and the value of Pass Plus training for new drivers.
+      Watch these videos for useful reminders about road safety, awareness,
+      responsible driving and adapting to changing road conditions.
     </p>
 
     <div class="videoGrid">
@@ -230,12 +278,13 @@
       style="padding:18px; border-left:6px solid var(--yellow)"
     >
       <h2 style="margin:0 0 6px">
-        Interested in Pass Plus?
+        Could You Benefit from Additional Training?
       </h2>
 
       <p style="margin:0 0 12px; color:var(--muted)">
-        Get in touch to ask about availability, course details and how Pass Plus
-        could help you become a safer and more confident driver.
+        Whether you want to refresh your driving skills, rebuild your confidence,
+        adapt to a new vehicle or improve your awareness of modern roads, get in
+        touch to discuss training tailored to your needs.
       </p>
 
       <div style="display:flex; gap:10px; flex-wrap:wrap">
@@ -277,12 +326,8 @@
       <strong>Follow Us</strong><br />
 
       <span class="note">
-        <a
-          href="https://www.instagram.com/eazypasses/"
-          target="_blank"
-          rel="noopener"
-        >
-          @eazypasses
+        <a href="https://www.instagram.com/eazypasses/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> @eazypasses
         </a>
       </span>
     </div>
@@ -291,8 +336,12 @@
       <strong>Contact</strong><br />
 
       <span class="note">
-        <a data-call>Call us</a> •
-        <a data-wa>WhatsApp</a>
+        <a data-call>
+            <i class="fa-solid fa-phone"></i> Call us
+        </a>
+        <a data-wa>
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
       </span>
     </div>
 
@@ -312,4 +361,3 @@
 
 </body>
 </html>
-```

@@ -6,6 +6,7 @@
   <title>Lessons & Services | Eazy Driving School</title>
   <meta name="description" content="Manual and automatic driving lessons in Hayes, Southall, Yeading, Uxbridge and surrounding areas. DVSA approved instructors, personalised tuition, refresher lessons, intensive courses and Pass Plus." />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
@@ -24,12 +25,12 @@
     <!-- Desktop links -->
     <div class="links">
       <a href="index.html?nav=true">Home</a>
-      <a href="lessons.html">Lessons</a>
+      <a href="lessons.html" class="active">Lessons</a>
       <a href="testimonials.html">Testimonials</a>
       <a href="gallery.html">Gallery</a>
       <a href="pass-page.html">STAY FOCUSED</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" data-call>Call</a>
+      <a class="iconBtn" data-call aria-label="Call"><i class="fa-solid fa-phone"></i></a>
       <a class="btn primary" data-book>Booking Enquiry</a>
     </div>
 
@@ -61,7 +62,7 @@
 
       <nav class="mobileMenuLinks" aria-label="Mobile navigation">
         <a href="index.html?nav=true">Home</a>
-        <a href="lessons.html">Lessons</a>
+        <a href="lessons.html" class="active">Lessons</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="gallery.html">Gallery</a>
         <a href="pass-page.html">STAY FOCUSED</a>
@@ -364,7 +365,7 @@
       <strong>Follow Us</strong><br />
       <span class="note">
         <a href="https://www.instagram.com/eazypasses/" target="_blank" rel="noopener">
-          @eazypasses
+            <i class="fa-brands fa-instagram"></i> @eazypasses
         </a>
       </span>
     </div>
@@ -372,8 +373,12 @@
     <div>
       <strong>Contact</strong><br />
       <span class="note">
-        <a data-call>Call us</a> •
-        <a data-wa>WhatsApp</a>
+        <a data-call>
+            <i class="fa-solid fa-phone"></i> Call us
+        </a>
+        <a data-wa>
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
       </span>
     </div>
   </div>
