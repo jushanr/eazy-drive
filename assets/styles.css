@@ -2222,7 +2222,7 @@ body > .section:nth-of-type(2){
 .iconBtn{
     width:48px;
     height:48px;
-    border:1px solid var(--line);
+    border:1px solid rgba(15,23,42,.10);
     border-radius:999px;
     display:flex;
     align-items:center;
@@ -2230,12 +2230,113 @@ body > .section:nth-of-type(2){
     background:#fff;
     font-size:22px;
     text-decoration:none;
-    transition:.2s;
+    transition:.25s ease;
     cursor:pointer;
+    box-shadow:0 10px 24px rgba(15,23,42,.06);
 }
 
 .iconBtn:hover{
-    background:var(--yellow);
-    border-color:var(--yellow);
     transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(15,23,42,.12);
+}
+
+/* Brand colours */
+
+.iconBtn .fa-whatsapp{
+    color:#25D366;
+}
+
+.iconBtn .fa-instagram{
+    color:#E4405F;
+}
+
+.iconBtn:hover .fa-whatsapp{
+    color:#1DA851;
+}
+
+.iconBtn:hover .fa-instagram{
+    color:#C13584;
+}
+
+.iconBtn.whatsapp:hover{
+    background:#25D366;
+    border-color:#25D366;
+}
+
+.iconBtn.whatsapp:hover i{
+    color:#fff;
+}
+
+.iconBtn.instagram:hover{
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+    border:none;
+}
+
+.iconBtn.instagram:hover i{
+    color:#fff;
+}
+
+/* ===== Official social icon colours ===== */
+
+.footer .fa-instagram{
+  color:#E4405F !important;
+  font-size:18px;
+}
+
+.footer .fa-whatsapp{
+  color:#25D366 !important;
+  font-size:18px;
+}
+
+.footer .fa-phone{
+  color:#f6c200 !important;
+  font-size:15px;
+}
+
+.footer .note a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-right:8px;
+}
+
+/* ===== Portrait Stay Focused video ===== */
+
+.videoGrid{
+  align-items:start;
+}
+
+.portraitVideo{
+  grid-column:1 / -1;
+  width:min(420px, 100%);
+  justify-self:center;
+}
+
+.portraitVideo video{
+  width:100%;
+  height:520px;
+  object-fit:contain;
+  background:#000;
+  border-radius:16px;
+}
+
+@media (max-width:760px){
+  .portraitVideo{
+    grid-column:auto;
+    width:100%;
+  }
+
+  .portraitVideo video{
+    height:420px;
+  }
+}
+
+.btn i{
+    margin-right:8px;
+    font-size:.95rem;
+    vertical-align:middle;
+}
+
+.btn.secondary .fa-whatsapp{
+    color:#25D366;
 }

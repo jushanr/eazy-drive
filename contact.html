@@ -35,7 +35,7 @@
 
     <!-- Mobile actions -->
     <div class="mobileNavActions">
-      <a class="btn" data-call>Call</a>
+      <a class="btn" data-call><i class="fa-solid fa-phone"></i> Call</a>
       <a class="btn primary" data-book>Book</a>
 
       <button
@@ -85,7 +85,7 @@
 
       <div class="heroCtas">
         <a class="btn primary" data-book>Contact Us</a>
-        <a class="btn secondary" data-wa>WhatsApp</a>
+        <a class="btn secondary" data-wa><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
 
@@ -122,8 +122,15 @@
       </div>
 
       <div class="tileButtons">
-        <a class="btn dark" data-call>Call now</a>
-        <a class="btn secondary" data-wa>WhatsApp</a>
+        <a class="btn dark" data-call>
+            <i class="fa-solid fa-phone"></i>
+            Call now
+        </a>
+
+        <a class="btn secondary" data-wa>
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+        </a>
       </div>
 
       <ul class="tileList">
@@ -148,7 +155,7 @@
         </div>
 
         <div class="tileButtons">
-          <a class="btn secondary" href="areas.html">View areas</a>
+          <a class="btn secondary" data-wa>Check Your Postcode</a>
           <a class="btn primary" data-book>Contact Us</a>
         </div>
 
@@ -189,7 +196,7 @@
             <option>Automatic</option>
             <option>Intensive</option>
             <option>Refresher</option>
-            <option>Pass Plus</option>
+            <option>Stay Focused Training</option>
           </select>
 
           <select class="field" name="area" required>
@@ -257,8 +264,8 @@
       </details>
 
       <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
-        <a class="btn dark" data-call>Call</a>
-        <a class="btn secondary" data-wa>WhatsApp</a>
+        <a class="btn dark" data-call><i class="fa-solid fa-phone"></i> Call</a>
+        <a class="btn secondary" data-wa><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
         <a class="btn primary" data-book>Book</a>
       </div>
     </div>
@@ -268,41 +275,63 @@
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container footerGrid">
+
     <div>
       <strong>Eazy Driving School</strong>
-      <p class="note">Manual and automatic driving lessons across Hayes, Southall, Yeading, Uxbridge and surrounding areas.</p>
+
+      <p class="note">
+        Manual and automatic driving lessons across Hayes, Southall, Yeading,
+        Uxbridge and surrounding areas.
+      </p>
     </div>
+
     <div>
       <strong>Quick Links</strong><br />
+
       <span class="note">
         <a href="lessons.html">Lessons</a> •
-        <a href="testimonials.html">Testimonials</a>
+        <a href="testimonials.html">Testimonials</a> •
+        <a href="gallery.html">Gallery</a> •
+        <a href="pass-page.html">Stay Focused</a> •
+        <a href="contact.html">Contact</a>
       </span>
     </div>
+
     <div>
-      <strong>Instagram</strong><br />
+      <strong>Follow Us</strong><br />
+
       <span class="note">
         <a href="https://www.instagram.com/eazypasses/" target="_blank" rel="noopener">
-            <i class="fa-brands fa-instagram"></i> @eazypasses
+          <i class="fa-brands fa-instagram"></i>
+          @eazypasses
         </a>
       </span>
     </div>
 
     <div>
       <strong>Contact</strong><br />
+
       <span class="note">
-        <a href="mailto:eazy@eazydrivingschool.co.uk">eazy@eazydrivingschool.co.uk</a><br />
-        <a href="tel:07957212670">07957 212670</a>
+        <a data-call>
+          <i class="fa-solid fa-phone"></i>
+          Call us
+        </a>
+
+        <a data-wa>
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
       </span>
     </div>
+
   </div>
 </footer>
 
 <!-- Mobile bottom bar -->
 <div class="mobileBar">
   <div class="mobileBarInner">
-    <a class="btn dark" data-call>Call</a>
-    <a class="btn secondary" data-wa>WhatsApp</a>
+    <a class="btn dark" data-call><i class="fa-solid fa-phone"></i> Call</a>
+    <a class="btn secondary" data-wa><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
     <a class="btn primary" data-book>Book</a>
   </div>
 </div>
@@ -334,7 +363,7 @@
         <option>Automatic</option>
         <option>Intensive</option>
         <option>Refresher</option>
-        <option>Pass Plus</option>
+        <option>Stay Focused Training</option>
       </select>
 
       <select class="field" name="area" required>
