@@ -281,66 +281,89 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-// ===== Premium mobile menu toggle =====
+// ===== Reliable mobile menu toggle =====
 document.addEventListener("DOMContentLoaded", () => {
-  const topbar = document.querySelector(".topbar");
-  const menu = document.querySelector("#mobileMenu");
-  const btn = document.querySelector("#menuBtn");
-  const closeBtn = document.querySelector("#menuClose");
+  const menu = document.getElementById("mobileMenu");
+  const menuBtn = document.getElementById("menuBtn");
+  const menuClose = document.getElementById("menuClose");
 
-  if (!topbar || !menu || !btn) return;
+  if (!menu || !menuBtn) return;
 
-  const openMenu = () => {
-    topbar.classList.add("menuOpen");
+  /*
+    Move the menu outside the sticky topbar.
+    This prevents Samsung Internet/mobile Chrome from trapping
+    the fixed menu inside the blurred sticky header.
+  */
+  if (menu.parentElement !== document.body) {
+    document.body.appendChild(menu);
+  }
+
+  let savedScrollPosition = 0;
+
+  function openMenu() {
+    savedScrollPosition = window.scrollY;
+
     menu.classList.add("open");
-    document.body.classList.add("menuOpen");
     menu.setAttribute("aria-hidden", "false");
-    btn.setAttribute("aria-expanded", "true");
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-  };
 
-  const closeMenu = () => {
-    topbar.classList.remove("menuOpen");
+    menuBtn.setAttribute("aria-expanded", "true");
+    menuBtn.setAttribute("aria-label", "Close menu");
+
+    document.body.classList.add("menu-open");
+    document.body.style.top = `-${savedScrollPosition}px`;
+  }
+
+  function closeMenu() {
+    if (!menu.classList.contains("open")) return;
+
     menu.classList.remove("open");
-    document.body.classList.remove("menuOpen");
     menu.setAttribute("aria-hidden", "true");
-    btn.setAttribute("aria-expanded", "false");
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
-  };
 
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "Open menu");
 
-    const isOpen = topbar.classList.contains("menuOpen");
-    if (isOpen) {
+    document.body.classList.remove("menu-open");
+    document.body.style.top = "";
+
+    window.scrollTo(0, savedScrollPosition);
+  }
+
+  menuBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (menu.classList.contains("open")) {
       closeMenu();
     } else {
       openMenu();
     }
   });
 
-  closeBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  menuClose?.addEventListener("click", (event) => {
+    event.preventDefault();
     closeMenu();
   });
 
-  menu.addEventListener("click", (e) => {
-    if (e.target === menu) {
+  menu.addEventListener("click", (event) => {
+    if (event.target === menu) {
       closeMenu();
     }
   });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
   });
 
-  menu.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => closeMenu());
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
   });
 });
 
